@@ -85,6 +85,14 @@ export const router = new Router({
           component: () => import('@views/orderSuccess/orderSuccess.vue')
         },
         {
+          path: '/cancelMailing',
+          name: 'cancelMailing',
+          meta: {
+            title: '取消寄件'
+          },
+          component: () => import('@views/cancelMailing/cancelMailing.vue')
+        },
+        {
           path: '/personalz',
           name: 'personalz',
           meta: {

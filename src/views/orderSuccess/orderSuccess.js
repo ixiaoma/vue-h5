@@ -1,6 +1,6 @@
 import Vue from 'vue'; 
 export default {
-    name: 'goodsInfo',
+    name: 'orderSuccess',
     components: {},
     data() {
         return {
