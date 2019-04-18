@@ -1,0 +1,140 @@
+html, body, div, ul, li, dl, dt, img, p, span, button, header, footer, main, article {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  -webkit-overflow-scrolling: touch;
+  font-size: 12px;
+}
+
+ul, li {
+  list-style: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+input { /*清除苹果的阴影*/
+  -webkit-appearance: none;
+}
+
+select {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+html, body, #app, #home {
+  height: 100%;
+  width: 100%;
+  font-family: "microsoft yahei", 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body, html {
+  background-color: #f2f2f2;
+  font-size: 625%; /*或者625%*/
+  /*box-sizing: border-box;*/
+}
+
+#app {
+  display: flex;
+}
+
+#home {
+  display: flex;
+  flex-direction: column;
+}
+.mint-header {
+  background-color: #f97910;
+  color: #fff;
+}
+.mint-searchbar {
+  background-color: #f97910 !important;
+}
+
+article {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.mint-indicator-wrapper {
+  font-size: 12px;
+}
+
+.mint-popup-right {
+  border-radius: 5px;
+  height: 100%;
+  width: 70%;
+}
+
+.mint-popup-bottom {
+  width: 100%;
+}
+
+/* loading加载样式 */
+.page-infinite-loading {
+  height: 50px;
+  text-align: center;
+  display: flex;
+  font-size: 14px !important;
+  justify-content: center;
+  align-items: center;
+}
+
+input, textarea {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+div {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.noData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute; /*jyx页面居中*/
+  top: 40%;
+  width: 100%;
+  opacity: 0.5;
+}
+
+.noData img {
+  width: 90px;
+  height: 100px;
+}
+
+.mint-cell-wrapper{
+  font-size:14px!important;
+}
+.mint-button--default {
+  margin: 8px;
+  background: #fff;
+  height: 28px;
+  border-radius: 3px;
+}
+
+.mint-button--default.gray {
+  width: 25%;
+  color: #000;
+  border: 1px solid #eee;
+}
+
+.mint-button--default.orange {
+  width: 25%;
+  color: #f97910;
+  border: 1px solid #f97910;
+}
+.picker-item{
+  font-size: 14px
+}
+.picker-item.picker-selected{
+  font-size: 16px
+}
