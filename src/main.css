@@ -119,3 +119,10 @@ div {
 .picker-item.picker-selected{
   font-size: 16px
 }
+.button_blue_long{/*长按钮*/
+  height: 30px;
+  border: 1px solid #2e95f7;
+  border-radius: 8px;
+  background: #fff;
+  color: #2e95f7;
+}

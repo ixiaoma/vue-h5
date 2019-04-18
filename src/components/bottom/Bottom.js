@@ -8,7 +8,7 @@ export default {
         {
           icon: "iconfont icon-jijian-copy",
           name: "寄件",
-          routeName: "homeList",
+          routeName: "userMailing",
           active: false,
           isShow: true
         },

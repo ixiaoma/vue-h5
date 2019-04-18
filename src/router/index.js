@@ -38,6 +38,14 @@ export const router = new Router({
           component: () => import('@views/personal/personal.vue')
         },
         {
+          path: '/userMailing',
+          name: 'userMailing',
+          meta: {
+            title: '我要寄件'
+          },
+          component: () => import('@views/userMailing/userMailing.vue')
+        },
+        {
           path: '/personalz',
           name: 'personalz',
           meta: {

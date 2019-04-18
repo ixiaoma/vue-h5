@@ -18,7 +18,9 @@ export default {
     toPage(value){
       let toName = ''
         if(value == 1){
-          toName = 'orderList'
+          toName = 'userOrder'
+        }else if(value==2){
+          toName='userMailing'
         }
         this.$router.push({
           name:toName
