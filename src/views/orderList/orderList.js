@@ -24,6 +24,9 @@ export default{
     },
     cancleOrder(item){
 
+    },
+    toDetail(item){
+      this.$router.push({name:'orderDetail'})
     }
   },
   created(){

@@ -30,6 +30,13 @@ export const router = new Router({
           component: () => import('@views/orderList/orderList.vue')
         },
         {
+          path: '/orderDetail',
+          name: 'orderDetail',
+          meta: {
+            title: '我的订单'
+          },
+          component: () => import('@views/orderDetail/orderDetail.vue')
+        },{
           path: '/personal',
           name: 'personal',
           meta: {

@@ -1,6 +1,6 @@
 <template>
     <div class="order-page">
-        <mt-navbar class="nav-bar" :selected.sync="selected" v-model="selected">
+        <mt-navbar class="nav-bar border-style" :selected.sync="selected" v-model="selected">
             <mt-tab-item id="0">全部</mt-tab-item>
             <mt-tab-item id="1">待取件</mt-tab-item>
             <mt-tab-item id="2">待支付</mt-tab-item>
@@ -10,7 +10,7 @@
             <ul v-infinite-scroll="loadMore"
                 infinite-scroll-disabled="loading"
                 infinite-scroll-distance="10">
-                <li class="order-li" v-for="item in listData" :key='item'>
+                <li class="order-li border-style" v-for="item in listData" :key='item' @click="toDetail(item)">
                     <p class="order-top">
                         <span class="order-number">快递单号: {{item}}</span>
                         <span class="order-state" :class='item%2 ? "red-font" : "blue-font"'>{{item%2 ? '待取件' : '待支付'}}</span>

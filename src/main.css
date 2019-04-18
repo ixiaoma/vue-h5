@@ -5,7 +5,7 @@ html, body, div, ul, li, dl, dt, img, p, span, button, header, footer, main, art
 
 * {
   -webkit-overflow-scrolling: touch;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 ul, li {
@@ -99,15 +99,17 @@ div {
 .mint-cell-wrapper{
   font-size:14px!important;
 }
-
+.mint-tab-item-label{
+  font-size: 14px;
+}
 
 .grayBtn {
   color: #000;
   border: 1px solid #eee;
-  height: 22px;
-  line-height: 22px;
-  padding: 0 5px;
-  border-radius: 5px
+  height: 26px;
+  line-height: 25px;
+  padding: 0 8px;
+  border-radius: 8px
 }
 .red-font{
   color: red;
@@ -123,8 +125,9 @@ div {
   color: red;
   border: 1px solid red;
 }
-.picker-item{
-  font-size: 14px
+.border-style{
+  border-radius: 8px;
+  background-color:#fff 
 }
 .picker-item.picker-selected{
   font-size: 16px
