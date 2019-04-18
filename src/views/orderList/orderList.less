@@ -2,9 +2,11 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    padding: 10px;
     .nav-bar{
         width: 100%;
         height: 36px;
+        border-radius: 10px;
         .mint-tab-item{
             padding: 13px 0
         }
@@ -15,20 +17,27 @@
     .order-list{
         overflow: auto;
         flex: 1;
-        background: #fff;
         .order-li{
-            height: 100px;
+            height: 120px;
+            margin-top: 10px;
+            background: #fff;
             display: flex;
             flex-direction: column;
             padding: 5px 10px;
-            border-bottom: 2px solid #f7f7fa;
+            border-radius: 10px;
             .order-top{
                 height: 30px;
                 display: flex;
                 justify-content:space-between;
                 align-items:center;
+                border-bottom: 1px solid #ccc;
+                padding: 0 10px;
                 .order-number{
-                    font-size: 16px    
+                    font-size: 15px;
+                    color: #ccc   
+                }
+                .order-state{
+                    font-size: 13px
                 }
             }
             .order-mid{

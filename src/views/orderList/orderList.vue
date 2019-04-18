@@ -13,14 +13,14 @@
                 <li class="order-li" v-for="item in listData" :key='item'>
                     <p class="order-top">
                         <span class="order-number">快递单号: {{item}}</span>
-                        <span>{{item%2 ? '待取件' : '待支付'}}</span>
+                        <span class="order-state" :class='item%2 ? "red-font" : "blue-font"'>{{item%2 ? '待取件' : '待支付'}}</span>
                     </p>
                     <p class="order-mid">
-                        北京 ---- 北京
+                        北京 ——— 北京
                     </p>
                     <p class="order-btm">
-                        <button class="grayBtn orangeBtn" @click='toPayOrder(item)'>去支付</button>
-                        <button class="grayBtn cancal-btn"  @click='cancleOrder(item)'>取消</button>
+                        <button class="grayBtn redBtn" @click='toPayOrder(item)'>去支付</button>
+                        <button class="grayBtn blueBtn cancal-btn"  @click='cancleOrder(item)'>取消</button>
                     </p>
                 </li>
             </ul>

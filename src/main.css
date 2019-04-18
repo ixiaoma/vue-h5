@@ -102,16 +102,26 @@ div {
 
 
 .grayBtn {
-  width: 18%;
   color: #000;
   border: 1px solid #eee;
-  height: 24px;
-  line-height: 24px;
+  height: 22px;
+  line-height: 22px;
+  padding: 0 5px;
+  border-radius: 5px
 }
-
-.orangeBtn{
-  color: #f97910;
-  border: 1px solid #f97910;
+.red-font{
+  color: red;
+}
+.blue-font{
+  color: #2e95f7;
+}
+.blueBtn{
+  color: #2e95f7;
+  border: 1px solid #2e95f7;
+}
+.redBtn{
+  color: red;
+  border: 1px solid red;
 }
 .picker-item{
   font-size: 14px
