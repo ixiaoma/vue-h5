@@ -1,7 +1,10 @@
 import Vue from 'vue';
+import NoData from '@/components/NoData/NoData.vue';
 export default {
   name: 'homeList',
-  components: {},
+  components: {
+    NoData
+  },
   data() {
     return {
       

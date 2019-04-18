@@ -3,8 +3,8 @@
 </style>
 <template>
   <div class="homeList">
-   这是首页
-   <span class="iconfont icon-jijian"></span>
+   <!-- <span class="iconfont icon-jijian"></span> -->
+   <NoData></NoData>
   </div>
 </template>
 <script src="./homeList.js"></script>
