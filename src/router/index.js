@@ -53,6 +53,14 @@ export const router = new Router({
           component: () => import('@views/userMailing/userMailing.vue')
         },
         {
+          path: '/addAddress',
+          name: 'addAddress',
+          meta: {
+            title: '新增地址'
+          },
+          component: () => import('@views/addAddress/addAddress.vue')
+        },
+        {
           path: '/personalz',
           name: 'personalz',
           meta: {

@@ -47,4 +47,4 @@
         </mt-popup>
   </div>
 </template>
-<script src="./userMailing.js"></script
+<script src="./userMailing.js"></script>

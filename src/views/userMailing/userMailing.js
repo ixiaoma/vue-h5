@@ -1,4 +1,5 @@
-import Vue from 'vue'; export default {
+import Vue from 'vue'; 
+export default {
     name: 'userMailing',
     components: {},
     data() {
