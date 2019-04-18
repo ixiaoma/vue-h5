@@ -54,7 +54,7 @@
                 <p class="row-right">北京北京   北京北京北京北京北京北京北京北京北京北京北京北京北京北京</p>
             </div>
         </div>
-        <button class="button_blue_long btm-btn">去支付</button>
+        <button class="button_blue_long btm-btn" @click="toPay">去支付</button>
     </div>
 </template>
 <script src='./orderDetail.js'></script>

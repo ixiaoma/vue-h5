@@ -33,10 +33,19 @@ export const router = new Router({
           path: '/orderDetail',
           name: 'orderDetail',
           meta: {
-            title: '我的订单'
+            title: '订单详情'
           },
           component: () => import('@views/orderDetail/orderDetail.vue')
-        },{
+        },
+        {
+          path: '/orderNumber',
+          name: 'orderNumber',
+          meta: {
+            title: '填写订单号'
+          },
+          component: () => import('@views/orderNumber/orderNumber.vue')
+        },
+        {
           path: '/personal',
           name: 'personal',
           meta: {
