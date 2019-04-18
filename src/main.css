@@ -11,7 +11,10 @@ html, body, div, ul, li, dl, dt, img, p, span, button, header, footer, main, art
 ul, li {
   list-style: none;
 }
-
+a{
+  text-decoration: none;
+  color:inherit;
+}
 button {
   background-color: transparent;
   border: none;
@@ -120,6 +123,9 @@ div {
 .color999-font{
   color: #999;
 }
+.orange-font{
+  color: orange
+}
 .blueBtn{
   color: #2e95f7;
   border: 1px solid #2e95f7;
@@ -130,7 +136,8 @@ div {
 }
 .border-style{
   border-radius: 8px;
-  background-color:#fff 
+  background-color:#fff;
+  padding: 0 10px 
 }
 .picker-item.picker-selected{
   font-size: 16px
@@ -141,4 +148,11 @@ div {
   border-radius: 8px;
   background: #fff;
   color: #2e95f7;
+}
+.box-style{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: auto;
 }

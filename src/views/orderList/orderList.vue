@@ -1,5 +1,5 @@
 <template>
-    <div class="order-page">
+    <div class="order-page box-style">
         <mt-navbar class="nav-bar border-style" :selected.sync="selected" v-model="selected">
             <mt-tab-item id="0">全部</mt-tab-item>
             <mt-tab-item id="1">待取件</mt-tab-item>
