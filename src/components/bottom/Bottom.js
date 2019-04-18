@@ -19,13 +19,6 @@ export default {
           active: false,
           isShow: true
         },
-        // {
-        //   icon: "fa fa-shopping-cart",
-        //   name: "购物车",
-        //   routeName: "shoppingPage",
-        //   active: false,
-        //   isShow: true
-        // },
         {
           icon: "fa fa-user-o fa-fw",
           name: "个人中心",
@@ -64,15 +57,5 @@ export default {
   created(){
     this.userInfo=JSON.parse(sessionStorage.getItem('userInfo'))
     this.menu[2].routeName=this.userInfo.userType==0||this.userInfo.userType==1||this.userInfo.userType==2||this.userInfo.userType==6?'personalz':'personal'
-    // this.userInfo.userType=3
-  //   if(this.userInfo.userType==1){
-  //     this.menu.forEach( ele=> {
-  //         ele.isShow = false;
-  //         if(ele.routeName == "personal") {
-  //           ele.isShow = true;
-  //         }
-  //   })
-  // }  
-  // this.$forceUpdate()
   }
 }

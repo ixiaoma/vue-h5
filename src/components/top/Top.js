@@ -18,7 +18,6 @@ export default {
   },
   watch: {
     $route(newRoute) {
-      // console.log(newRoute)
       this.title = newRoute.meta.title
     }
   },

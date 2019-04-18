@@ -2,8 +2,6 @@
     <div class="ad_pay">
         <mt-popup v-model="popupVisible" :closeOnClickModal='false'>
             <div class="content">
-                <!--<h2>太平洋保险</h2>
-                <p>您好，为了你的支付安全，我们已为您添加了太平洋保险</p>-->
                 <h2>请核对订单信息</h2>
                 <p>地址：{{school}}&nbsp;&nbsp;{{grade}}&nbsp;&nbsp;{{classes}}</p>
                 <p>联系人：{{studentName}}&nbsp;&nbsp;{{phone}}</p>
@@ -21,8 +19,6 @@
         <div class="ad_pay_2">
         <mt-popup v-model="popupVisible2">
             <div class="content2">
-                <!--<h2>太平洋保险</h2>
-                <p>太平洋保险已为您的支付提供安全保障，请放心付款。</p>-->
                 <img src="../../../static/images/baoxian.png">
                 <p>价格保障</p>
                 <br>   
@@ -54,10 +50,6 @@ export default {
             this.popupVisible=false
              this.$router.push({//订单列表
                 name:'order'
-                // name:'orderDetails',
-                // query:{
-                //     id:this.orderId
-                // }
             });
         },
         confirm() {

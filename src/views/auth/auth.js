@@ -11,15 +11,11 @@ export default {
           this.userInfo=res.data.data;         
           sessionStorage.setItem('userInfo',JSON.stringify(this.userInfo))
           let beforeUrl = sessionStorage.getItem("beforeUrl");
-          // if(beforeUrl == 'homeList' && !res.data.data.relationSchoolId && res.data.data.userType == '3'){
-          //   this.$router.push({ name: 'chooseSchool' })
-          // }else{
           if(beforeUrl) {
             this.$router.push(beforeUrl);
           } else {
             this.$router.push('homeList');
           }
-          // }
         }else{
           this.$Message.error({content:res.data.message,duration:5});
         }
@@ -28,19 +24,7 @@ export default {
       }).catch(res=>{
         console.log(res);
       })
-    },
-    // getSalesPhone() {//获取绑定的销售人员电话
-    //   var url = this.GLOBAL.API_APP_USER_SALE_PHONE;
-    //   this.$get(url).then(res=>{
-    //     if(res.data.retCode == 200){
-    //       this.getUserInfo();
-    //     }else{
-    //       this.$Message.error({content:res.data.message,duration:5});
-    //     }
-    //   }).catch((res)=>{
-    //     console.log(res);
-    //   })
-    // }
+    }
   },
   created(){
     /**
