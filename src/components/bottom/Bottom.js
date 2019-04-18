@@ -56,6 +56,6 @@ export default {
   },
   created(){
     this.userInfo=JSON.parse(sessionStorage.getItem('userInfo'))
-    this.menu[2].routeName=this.userInfo.userType==0||this.userInfo.userType==1||this.userInfo.userType==2||this.userInfo.userType==6?'personalz':'personal'
+    // this.menu[2].routeName=this.userInfo.userType==0||this.userInfo.userType==1||this.userInfo.userType==2||this.userInfo.userType==6?'personalz':'personal'
   }
 }
