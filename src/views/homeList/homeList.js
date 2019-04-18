@@ -16,7 +16,13 @@ export default {
       this.$store.commit("setMenu", [true, true]);
     },
     toPage(value){
-        
+      let toName = ''
+        if(value == 1){
+          toName = 'userOrder'
+        }
+        this.$router.push({
+          name:toName
+        })
     }
   },
   created() {
