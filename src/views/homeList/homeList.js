@@ -13,7 +13,7 @@ export default {
   computed: {},
   methods: {
     setConfig() {
-      this.$store.commit("setMenu", [true, false]);
+      this.$store.commit("setMenu", [true, true]);
     },
     toPage(value){
         

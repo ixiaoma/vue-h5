@@ -36,6 +36,6 @@
   }
 
   .active {
-    color: #f97910;
+    color: #1871f9;
   }
 </style>

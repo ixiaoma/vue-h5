@@ -49,11 +49,11 @@ body, html {
   flex-direction: column;
 }
 .mint-header {
-  background-color: #f97910;
+  background-color: #1871f9;
   color: #fff;
 }
 .mint-searchbar {
-  background-color: #f97910 !important;
+  background-color: #1871f9 !important;
 }
 
 article {
@@ -96,41 +96,8 @@ div {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.noData {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute; /*jyx页面居中*/
-  top: 40%;
-  width: 100%;
-  opacity: 0.5;
-}
-
-.noData img {
-  width: 90px;
-  height: 100px;
-}
-
 .mint-cell-wrapper{
   font-size:14px!important;
-}
-.mint-button--default {
-  margin: 8px;
-  background: #fff;
-  height: 28px;
-  border-radius: 3px;
-}
-
-.mint-button--default.gray {
-  width: 25%;
-  color: #000;
-  border: 1px solid #eee;
-}
-
-.mint-button--default.orange {
-  width: 25%;
-  color: #f97910;
-  border: 1px solid #f97910;
 }
 .picker-item{
   font-size: 14px
