@@ -1,0 +1,52 @@
+.insuredPrice{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 10px;
+    overflow: auto;
+    .info{
+        background: #fff;
+        border-radius: 8px;      
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        margin: 5px 0 10px 0;
+        .info_price{
+            display: flex;
+            flex-direction: row;
+            padding: 10px;
+            p{
+                width: 80px;
+            }     
+            input{
+                flex:1;
+                height: 20px;
+                border:0px;
+                border-bottom: 1px solid #ccc;
+                text-align: center;
+                margin: 0 5px;
+            }    
+        }  
+        .remark{
+            padding: 10px;
+            font-size: 12px;
+            display: flex;
+            justify-content: flex-end;
+        }     
+    }
+    .button{
+        display: flex;
+        flex-direction: row;
+        button{
+            flex: 1;
+            &:nth-of-type(1){
+                margin-right: 5px;
+            }
+            &:nth-of-type(2){
+                margin-left: 5px;
+            }
+        }
+    }
+}

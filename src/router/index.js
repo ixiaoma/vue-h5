@@ -61,6 +61,30 @@ export const router = new Router({
           component: () => import('@views/addAddress/addAddress.vue')
         },
         {
+          path: '/goodsInfo',
+          name: 'goodsInfo',
+          meta: {
+            title: '物品信息'
+          },
+          component: () => import('@views/goodsInfo/goodsInfo.vue')
+        },
+        {
+          path: '/insuredPrice',
+          name: 'insuredPrice',
+          meta: {
+            title: '物品保价'
+          },
+          component: () => import('@views/insuredPrice/insuredPrice.vue')
+        },
+        {
+          path: '/orderSuccess',
+          name: 'orderSuccess',
+          meta: {
+            title: '下单成功'
+          },
+          component: () => import('@views/orderSuccess/orderSuccess.vue')
+        },
+        {
           path: '/personalz',
           name: 'personalz',
           meta: {

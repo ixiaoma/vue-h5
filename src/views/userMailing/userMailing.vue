@@ -7,7 +7,7 @@
           <div class="row_1">
               <span class="iconfont icon-jijian1"></span>
                 <input type="text" placeholder="请输入寄件人信息" v-model="mailingInfo"/>
-                <i class="fa fa-chevron-right"></i>
+                <i class="fa fa-chevron-right"  @click="toPage(1)"></i>
           </div>
           <div class="row_2">
               <span class="iconfont icon-shoujian"></span>
@@ -22,15 +22,15 @@
             <mt-field label="付款方式" placeholder="强输入付款方式" v-model="payWay"></mt-field> 
       </div>
       <div class="info">
-            <mt-field label="物品信息" placeholder="请选择" v-model="goods" readonly @click.native="toPage(1)"></mt-field>
-            <mt-field label="保价" placeholder="请选择" v-model="valuation" readonly @click.native="toPage(2)"></mt-field>          
+            <mt-field label="物品信息" placeholder="请选择" v-model="goods" readonly @click.native="toPage(2)"></mt-field>
+            <mt-field label="保价" placeholder="请选择" v-model="valuation" readonly @click.native="toPage(3)"></mt-field>          
       </div>   
       <p @click="agreevalue=!agreevalue">
           <i v-if="agreevalue" class="fa fa-check-circle-o blue"></i>
           <i v-else class="fa fa-circle-thin ccc"></i>
           我已阅读并同意《电子运单契约条款》   
       </p>
-      <button class="button_blue_long">立即下单</button>
+      <button class="button_blue_long" @click="toPage(4)">立即下单</button>
       <mt-popup v-model="popupshowEC" position="bottom" class="popup">
             <div class="mint-msgbox-btns">
             <button class="mint-msgbox-btn mint-msgbox-cancel" @click="cancel(1)">取消</button>

@@ -123,6 +123,21 @@ export default {
                 this.popupshowMT = false
             }
         },
+        toPage(value){
+            let pushName=''
+            if(value==1){
+                pushName='addAddress'
+            }else if(value==2){
+                pushName='goodsInfo'
+            }else if(value==3){
+                pushName='insuredPrice'
+            }else if(value==4){
+                pushName='orderSuccess'
+            }
+            this.$router.push({
+                name:pushName
+            })
+        }
     },
     created() {
         this.setConfig()

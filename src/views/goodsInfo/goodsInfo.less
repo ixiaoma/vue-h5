@@ -1,0 +1,80 @@
+.goodsInfo{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 10px;
+    overflow: auto;
+    .info{
+        background: #fff;
+        border-radius: 8px;      
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        p{
+            height: 30px;
+            width: 100%;
+            padding: 5px;
+            font-weight: 600;
+        }
+        .goodslist{
+            display: flex;
+            .goods{
+                flex: 1;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                border: 1px solid #ccc;
+                margin: 5px;
+                width: 90px;
+            }  
+            .goodsred{
+                flex: 1;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                border: 1px solid red;
+                margin: 5px;
+                width: 90px;
+                color: red;
+            }        
+        }
+    }
+    .weightInfo{
+        background: #fff;
+        border-radius: 8px;      
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        margin: 5px 0 10px 0;
+        .weight_add_reduce{
+            display: flex;
+            flex-direction: row;
+            p{
+                flex: 1;
+            }
+            .add_reduce{
+                flex:1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                input{
+                    width: 50px;
+                    height: 20px;
+                    border:0px;
+                    border-bottom: 1px solid #ccc;
+                    text-align: center;
+                    margin: 0 5px;
+                }
+            }
+        }  
+        .zhu{
+            color: #999;
+            font-size: 12px;
+        }     
+    }
+}
