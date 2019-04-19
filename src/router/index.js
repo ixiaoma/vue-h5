@@ -102,6 +102,14 @@ export const router = new Router({
           component: () => import('@views/cancelMailing/cancelMailing.vue')
         },
         {
+          path: '/addressManage',
+          name: 'addressManage',
+          meta: {
+            title: '地址管理'
+          },
+          component: () => import('@views/addressManage/addressManage.vue')
+        },
+        {
           path: '/personalz',
           name: 'personalz',
           meta: {

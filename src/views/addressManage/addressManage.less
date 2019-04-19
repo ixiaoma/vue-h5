@@ -1,0 +1,95 @@
+.addressManage{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow: auto;
+    .page-search{
+        height: 40px;
+    }
+    .navbar{
+       background: #fff;
+       border-radius: 8px;    
+    }
+    .info{
+        background: #fff;
+        border-radius: 8px;      
+        margin: 5px 10px 0 10px; 
+        .list-item{
+            background: #fff;
+            padding: 10px 10px 0 10px;
+            margin-bottom: 3px;
+            border-radius: 5px;
+            .address-text{
+                padding: 5px;
+                border-bottom: 1px solid #efefef;
+                p:nth-of-type(1){
+                    line-height: 30px;
+                    span{
+                        font-size: 14px;
+                        color: #333;
+                    }
+                }
+                p:nth-of-type(2){
+                    line-height: 25px;
+                    color: #999;
+                }
+            } 
+            .handle{
+                display: flex;
+                flex-direction: row;
+                height: 30px;
+                align-items: center;
+                justify-content: center;
+                color: #999;
+                .checkbox_list{
+                    flex: 2;
+                    i{
+                        font-size: 18px;             
+                        color: #efefef;
+                    }
+                    .font_red{
+                        color: #FF9800;
+                    }
+                }
+                .operation{
+                    flex: 1;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-end;
+                    align-items: flex-end;
+                    p{
+                        color: #999;     
+                        width: 80px;
+                        text-align: right;               
+                        .fa-fw{
+                            line-height: 18px;
+                        }
+                    }
+                }
+            }    
+        }
+    }
+
+    .mint-searchbar {
+        padding: 5px;
+        box-sizing: border-box
+    }
+    .mint-search {
+        height: 100% !important;
+    }
+    .mintui-search:before {
+        font-size:20px;
+    }
+    .mint-searchbar-inner {
+        border-radius: 15px;
+        height: 22px;
+    }
+    .mint-searchbar-cancel{
+        color: #fff
+    }
+    .mint-searchbar-core {
+        font-size:14px;
+        color:rgb(79, 79, 79);
+    }
+}

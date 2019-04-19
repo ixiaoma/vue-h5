@@ -12,6 +12,11 @@ export default {
         setConfig() {
             this.$store.commit("setMenu", [true, true]);
         },
+        toPage(){
+            this.$router.push({
+                name:'orderDetail'
+            })
+        }
     },
     created() {
         this.setConfig()
