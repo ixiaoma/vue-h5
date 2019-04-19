@@ -21,7 +21,9 @@ export default {
           toName = 'orderList'
         }else if(value==2){
           toName='userMailing'
-        }
+        }else if(value==4){
+          toName='addressManage'
+        }     
         this.$router.push({
           name:toName
         })

@@ -6,23 +6,30 @@ export default {
       userType:1,
       menu: [
         {
+          icon: "fa fa-home",
+          name: "首页",
+          routeName: "homeList",
+          active: false,
+          isShow: true
+        },
+        {
           icon: "iconfont icon-jijian-copy",
           name: "寄件",
           routeName: "userMailing",
           active: false,
           isShow: true
         },
-        {
-          icon: "iconfont icon-xingtaiduICON_sousuo--",
-          name: "查件",
-          routeName: "bookList",
-          active: false,
-          isShow: true
-        },
+        // {
+        //   icon: "iconfont icon-xingtaiduICON_sousuo--",
+        //   name: "查件",
+        //   routeName: "bookList",
+        //   active: false,
+        //   isShow: true
+        // },
         {
           icon: "iconfont icon-icon--copy",
           name: "订单",
-          routeName: "bookList",
+          routeName: "orderList",
           active: false,
           isShow: true
         },
