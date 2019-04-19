@@ -50,7 +50,7 @@ export default {
     }
   },
   created(){
-    this.$store.commit("setMenu", [false, false]);
+    this.$store.commit("setMenu", [false, true]);
     // this.userInfoLoad()
   }
 }

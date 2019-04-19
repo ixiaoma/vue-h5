@@ -40,19 +40,18 @@ export default {
             }
         },
         userInfoLoad(){
-            let url=this.GLOBAL.PERSONAL_INFO
-            this.$get(url).then(res=>{
-                if(res.data.retCode==200){
-                    this.userInfo=res.data.data;     
-                    sessionStorage.setItem('userInfo',JSON.stringify(this.userInfo))    
-                    this.$router.push({ name: 'personalz' })             
-                }
-            })
+            // let url=this.GLOBAL.PERSONAL_INFO
+            // this.$get(url).then(res=>{
+            //     if(res.data.retCode==200){
+            //         this.userInfo=res.data.data;     
+            //         sessionStorage.setItem('userInfo',JSON.stringify(this.userInfo))    
+            //         this.$router.push({ name: 'personalz' })             
+            //     }
+            // })
+            this.$router.push({ name: 'personalz' })   
         },
         loadCode(){
-            //wx877afd1dffed5e38顶点众达   wx5dae3b7d0a4ede8f中教优选
-            window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx877afd1dffed5e38&redirect_uri=' + encodeURIComponent('http://' + this.GLOBAL.authUrl + '/codePage') + '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
-            // window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5dae3b7d0a4ede8f&redirect_uri=' + encodeURIComponent('http://' + this.GLOBAL.authUrl + '/codePage') + '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
+            window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd902e0366907c099&redirect_uri=' + encodeURIComponent('http://' + this.GLOBAL.authUrl + '/codePage') + '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
         }
     },
     created() {

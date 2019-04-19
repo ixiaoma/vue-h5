@@ -210,7 +210,7 @@ export const router = new Router({
 //           //假设派送员是单独的
 //           if(!_token){
 //             sessionStorage.setItem('beforeUrl', to.fullPath);
-//             window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx877afd1dffed5e38&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authzPage') + '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
+//             window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd902e0366907c099&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authzPage') + '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
 //           }else{
 //             next()
 //           }
@@ -218,7 +218,7 @@ export const router = new Router({
 //           //普通用户
 //           if (!_token) {
 //             sessionStorage.setItem('beforeUrl', to.fullPath);
-//             window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx877afd1dffed5e38&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authPage') + '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
+//             window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd902e0366907c099&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authPage') + '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
 //           } else {
 //             next();
 //           }
