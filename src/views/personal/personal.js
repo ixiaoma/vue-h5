@@ -24,7 +24,9 @@ export default {
     }
   },
   methods: {
-
+    toPage(){
+      this.$router.push({name:'personalEdit'})
+    }
   },
   created(){
     this.$store.commit("setMenu", [false, true]);

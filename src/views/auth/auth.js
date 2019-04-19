@@ -19,8 +19,6 @@ export default {
         }else{
           this.$Message.error({content:res.data.message,duration:5});
         }
-      }).then(()=>{
-
       }).catch(res=>{
         console.log(res);
       })
@@ -39,7 +37,6 @@ export default {
       this.$post(url,params).then(res => {//通过code去获取请求接口所携带的access_token(并非微信的token)
         if(res.status == 200){
           sessionStorage.setItem('wechataccess_token', res.headers.authorization);
-          // this.$router.push('personal');
           this.getUserInfo();   
         }else{
           this.Toast({
@@ -50,9 +47,8 @@ export default {
         }
       })
     } else if (this.$route.query.code && sessionStorage.getItem('wechataccess_token')){
-      this.$router.push('personal');
+      this.$router.push('homeList');
     }
   },
-  mounted(){
-  }
+  mounted(){}
 }

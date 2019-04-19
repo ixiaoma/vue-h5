@@ -31,14 +31,12 @@ function err( res ){
   Indicator.close();
   if(res.request.status==403){
     sessionStorage.removeItem('wechataccess_token');
-    let userInfo=JSON.parse(sessionStorage.getItem('userInfo'))
+    // let userInfo=JSON.parse(sessionStorage.getItem('userInfo'))
     //wx877afd1dffed5e38顶点众达   wx5dae3b7d0a4ede8f中教优选
     // if(userInfo.userType=="3"){//家长
     //     window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx877afd1dffed5e38&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authPage') + '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
-    //     // window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5dae3b7d0a4ede8f&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authPage') + '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
     // }else if(userInfo.userType=="1"||userInfo.userType=="2"||userInfo.userType=="4"||userInfo.userType=="5"||userInfo.userType=="6"){
     //   window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx877afd1dffed5e38&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authzPage') + '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';  
-    //   // window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5dae3b7d0a4ede8f&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authzPage') + '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
     // }else if(!userInfo){
     //   router.push('login');
     // }

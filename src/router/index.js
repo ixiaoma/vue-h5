@@ -54,6 +54,46 @@ export const router = new Router({
           component: () => import('@views/personal/personal.vue')
         },
         {
+          path: '/personalEdit',
+          name: 'personalEdit',
+          meta: {
+            title: '个人信息'
+          },
+          component: () => import('@views/personal/personalEdit.vue')
+        }, 
+        {
+          path: '/setting',
+          name: 'setting',
+          meta: {
+            title: '设置'
+          },
+          component: () => import('@views/setting/setting.vue')
+        },
+        {
+          path: '/accountSafe',
+          name: 'accountSafe',
+          meta: {
+            title: '账号与安全'
+          },
+          component: () => import('@views/setting/accountSafe/accountSafe.vue')
+        },
+        {
+          path: '/bindPhoneEmail',
+          name: 'bindPhoneEmail',
+          meta: {
+            title: '绑定校验'
+          },
+          component: () => import('@views/setting/bindPhoneEmail/bindPhoneEmail.vue')
+        },
+        {
+          path: '/newNo',
+          name: 'newNo',
+          meta: {
+            title: '修改校验'
+          },
+          component: () => import('@views/setting/newNo/newNo.vue')
+        },
+        {
           path: '/userMailing',
           name: 'userMailing',
           meta: {
@@ -164,22 +204,21 @@ export const router = new Router({
 
 // router.beforeEach((to, from, next) => {
 //   document.title = to.meta.title;
-//   if (to.name != 'authPage'&&to.name != 'authzPage'&& to.name != 'login' && to.name != 'freeLearn' && to.name != 'learnTool') {// && to.name != 'homeList' && to.name != 'productDetail'
+//   if (to.name != 'authPage'&&to.name != 'authzPage'&& to.name != 'login') {
 //     let _token = sessionStorage.getItem('wechataccess_token');
 //       if(to.name=="personalz"){
-//         //wx877afd1dffed5e38顶点众达   wx5dae3b7d0a4ede8f中教优选
+//           //假设派送员是单独的
 //           if(!_token){
 //             sessionStorage.setItem('beforeUrl', to.fullPath);
 //             window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx877afd1dffed5e38&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authzPage') + '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
-//             // window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5dae3b7d0a4ede8f&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authzPage') + '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
 //           }else{
 //             next()
 //           }
 //       }else{
+//           //普通用户
 //           if (!_token) {
 //             sessionStorage.setItem('beforeUrl', to.fullPath);
 //             window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx877afd1dffed5e38&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authPage') + '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
-//             // window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5dae3b7d0a4ede8f&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authPage') + '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
 //           } else {
 //             next();
 //           }
@@ -187,8 +226,7 @@ export const router = new Router({
 //   } else {
 //     next();
 //   }
-//   // next();
-//   //禁用分享功能（写在路由中是确保刷新后依然没有分享功能）
+//   //禁用分享功能,因为分享功能存在bug（写在路由中是确保刷新后依然没有分享功能）
 //   if (typeof WeixinJSBridge == "undefined") {
 //     if (document.addEventListener) {
 //       document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
@@ -198,32 +236,6 @@ export const router = new Router({
 //     }
 //   } else {
 //     onBridgeReady();
-//   }
-//   //如果是从首页跳转到其他页面，需要把监听事件清除。在页面的destroyed的钩子函数中拿不到DOM元素，所以在路由守卫中去做一下操作
-//   if(from.name == 'homeList') {
-//     var singel_page = document.getElementsByClassName('homeList')[0];
-//     singel_page.removeEventListener('scroll', this.handleScroll);
-//     var content_wrap = document.getElementsByClassName('contentWrap')[0];
-//     content_wrap.removeEventListener('scroll', this.handleScroll);
-//     next();
-//   }else if(from.name == 'productDetail'){
-//     var pro_detail_page = document.getElementsByClassName('productDetail')[0];
-//     pro_detail_page.removeEventListener('scroll', this.handleScroll);
-//     next();
-//   }else if(from.name == 'bookList'){
-//     var book_list = document.getElementsByClassName('bookList')[0];
-//     book_list.removeEventListener('scroll', this.handleScroll);
-//     next();
-//   } else if(from.name == 'personMessage'){
-//     var person_message = document.getElementsByClassName('personMessage')[0];
-//     person_message.removeEventListener('scroll', this.handleScroll);
-//     next();
-//   } else if(from.name == 'saleWrap'){
-//     var sales_wrap = document.getElementsByClassName('saleWrap')[0];
-//     sales_wrap.removeEventListener('scroll', this.handleScroll);
-//     next();
-//   } else {
-//     next();
 //   }
 // });
 
