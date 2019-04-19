@@ -2,7 +2,45 @@ export default{
   data(){
     return {
       selected:'0',
-      listData:[1,2,3,4,5,6,7,8,9,10]
+      searchvalue:'',
+      systemUser:'courier',
+      listData:[1,2,3,4,5,6,7,8,9,10],
+      userNav:[
+        {
+          key:'0',
+          name:'全部'
+        },
+        {
+          key:'1',
+          name:'待取件'
+        },
+        {
+          key:'2',
+          name:'待支付'
+        },
+        {
+          key:'3',
+          name:'已签收'
+        }
+      ],
+      courierNav:[
+        {
+          key:'0',
+          name:'全部'
+        },
+        {
+          key:'1',
+          name:'待取件'
+        },
+        {
+          key:'2',
+          name:'已取件'
+        },
+        {
+          key:'3',
+          name:'已取消'
+        }
+      ]
     }
   },
   methods:{
@@ -23,10 +61,16 @@ export default{
 
     },
     cancleOrder(item){
-
+      this.$router.push({
+        name:'cancelMailing',
+        id:item.key
+      })
     },
     toDetail(item){
       this.$router.push({name:'orderDetail'})
+    },
+    loadListData(){
+      
     }
   },
   created(){

@@ -10,5 +10,8 @@ export default{
                 name:'orderNumber'    
             })
         }
+    },
+    created(){
+      this.$store.commit("setMenu", [true, false]);
     }
 }

@@ -1,5 +1,11 @@
 .order-page{
+    padding: 0;
+    height: 100%;
+    .search{
+        height: 38px;
+    }
     .nav-bar{
+        margin: 10px 10px 0;
         height: 38px;
         .mint-tab-item{
             padding: 13px 0
@@ -8,39 +14,46 @@
             margin-bottom: 0
         }
     }
-    .search{
-        margin-top: 10px;
-        // height: 38px;
-    }
-    .mint-searchbar {
-        padding: 5px;
-        box-sizing: border-box
-    }
-    .mint-search {
-        height: 100% !important;
-    }
-    .mintui-search:before {
-        font-size:20px;
-    }
-    .mint-searchbar-inner {
-        border-radius: 15px;
-        height: 22px;
-    }
-    .mint-searchbar-cancel{
-        color: #fff
-    }
-    .mint-searchbar-core {
-        font-size:14px;
-        color:rgb(79, 79, 79);
-    }
     .order-list{
         overflow: auto;
+        margin: 0 10px;
         flex: 1;
         .order-li{
-            height: 120px;
             margin-top: 10px;
-            display: flex;
-            flex-direction: column;
+            div{
+                height: 120px;
+                display: flex;
+            }
+            .user-order{
+                flex-direction: column;
+            }
+            .courier-order{
+                align-items:center;
+                img{
+                    width: 100px;
+                    height: 100px;
+                    border: 1px solid #ccc;
+                }
+                .order-info{
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content:center;
+                    padding-left: 10px;
+                    .info-top{
+                        display: flex;
+                        justify-content:space-between;
+                    }
+                    .info-btm{
+                        display: flex;
+                        justify-content:flex-end;
+                    }
+                    p{
+                        height: 26px;
+                        line-height: 26px
+                    }
+                }
+            }
             padding: 5px 10px;
             .order-top{
                 height: 30px;
