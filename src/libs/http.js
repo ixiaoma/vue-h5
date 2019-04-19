@@ -32,9 +32,9 @@ function err( res ){
   if(res.request.status==403){
     sessionStorage.removeItem('wechataccess_token');
     let userInfo=JSON.parse(sessionStorage.getItem('userInfo'))
-    if(userInfo.userType=="3"){//家长
+    if(userInfo.userType=="2"){//普通用户
         window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd902e0366907c099&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authPage') + '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
-    }else if(userInfo.userType=="1"||userInfo.userType=="2"||userInfo.userType=="4"||userInfo.userType=="5"||userInfo.userType=="6"){
+    }else if(userInfo.userType=="1"){//派送员
       window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd902e0366907c099&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authzPage') + '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';  
     }else if(!userInfo){
       router.push('login');

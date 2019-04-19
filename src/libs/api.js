@@ -8,7 +8,7 @@ let authUrl = "m.express.ui-tech.cn"//"m.express.ui-tech.cn"
 let API_FILE_PATH ="http://file.ui-tech.cn/"
 //换取access_token
 let API_WECHAT_LOGIN = `${API_AUTH}wechatlogin`
-//组员组长校长班主任 换取access_token
+//派送员 换取access_token
 let API_MEMBER_WECHAT_LOGIN = `${API_AUTH}memberwechatlogin`
 //微信config配置
 let API_WECHATLOGIN_GET_WECHAT_SIGN = `${baseUrl}wechat/sign`
