@@ -69,7 +69,7 @@ export default {
     }
   },
   created(){
-    this.userInfo=JSON.parse(sessionStorage.getItem('userInfo'))
-    this.menu[2].routeName=this.userInfo.userType==1?'personalz':'personal'
+    // this.userInfo=JSON.parse(sessionStorage.getItem('userInfo'))
+    // this.menu[2].routeName=this.userInfo.userType==1?'personalz':'personal'
   }
 }

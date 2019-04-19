@@ -46,10 +46,10 @@ export const router = new Router({
           component: () => import('@views/orderNumber/orderNumber.vue')
         },
         {
-          path: '/personal',
+          path: '/personal',//普通用户个人中心
           name: 'personal',
           meta: {
-            title: '个人中心'
+            title: 'slotsems'
           },
           component: () => import('@views/personal/personal.vue')
         },
@@ -158,10 +158,10 @@ export const router = new Router({
           component: () => import('@views/addressManage/recipientAdd/recipientAdd.vue')
         },
         {
-          path: '/personalz',
+          path: '/personalz',//派送员个人中心
           name: 'personalz',
           meta: {
-            title: '会员中心'
+            title: '个人中心'
           },
           component: () => import('@views/personalz/personal.vue')
         },
