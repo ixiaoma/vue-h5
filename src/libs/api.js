@@ -3,7 +3,7 @@ import { baseUrl } from "@/config/env"
 const API_AUTH = `${baseUrl}auth/`
 
 //授权回调域名
-let authUrl = "bookshop.jcwl2010.com"
+let authUrl = "m.express.ui-tech.cn"//"m.express.ui-tech.cn"
 //图片回显
 let API_FILE_PATH ="http://file.ui-tech.cn/"
 //换取access_token
