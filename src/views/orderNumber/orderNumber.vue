@@ -2,7 +2,7 @@
     <div class="order-number box-style">
         <div class="border-style num-box">
             <mt-field label="快递单号" placeholder="请输入快递单号" readonly v-model="number">
-                <button class="grayBtn blueBtn">获取快递单号</button>
+                <button class="grayBtn blueBtn">生成快递单号</button>
             </mt-field>
             <mt-field label="快递费用" placeholder="请输入快递费用" v-model="money"></mt-field>
         </div>

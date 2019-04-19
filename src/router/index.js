@@ -22,6 +22,22 @@ export const router = new Router({
           component: () => import('@views/homeList/homeList.vue')
         },
         {
+          path: '/monthUser',
+          name: 'monthUser',
+          meta: {
+            title: '月结用户'
+          },
+          component: () => import('@views/orderList/orderList.vue')
+        },
+        {
+          path: '/nowUser',
+          name: 'nowUser',
+          meta: {
+            title: '现结用户'
+          },
+          component: () => import('@views/orderList/orderList.vue')
+        },
+        {
           path: '/orderList',
           name: 'orderList',
           meta: {

@@ -20,38 +20,39 @@
         flex: 1;
         .order-li{
             margin-top: 10px;
-            div{
+            .user-order,.courier-order{
                 height: 120px;
                 display: flex;
-            }
-            .user-order{
                 flex-direction: column;
             }
             .courier-order{
-                align-items:center;
-                img{
-                    width: 100px;
-                    height: 100px;
-                    border: 1px solid #ccc;
-                }
-                .order-info{
-                    flex: 1;
+                .courier-order-top{
                     display: flex;
-                    flex-direction: column;
-                    justify-content:center;
-                    padding-left: 10px;
-                    .info-top{
-                        display: flex;
-                        justify-content:space-between;
+                    align-items:center;
+                    flex: 1;
+                    img{
+                        width: 90px;
+                        height: 90px;
+                        border: 1px solid #ccc;
                     }
-                    .info-btm{
-                        display: flex;
-                        justify-content:flex-end;
+                    .courier-info{
+                        flex: 1;
+                        margin-left: 20px;
+                        p{
+                            height: 30px;
+                            line-height: 30px;
+                        }
+                        .courier-info-top{
+                            display: flex;
+                            justify-content:space-between;
+                        }
                     }
-                    p{
-                        height: 26px;
-                        line-height: 26px
-                    }
+                }
+                .courier-order-btm{
+                    height: 30px;
+                    display: flex;
+                    justify-content:flex-end;
+                    align-items:center;
                 }
             }
             padding: 5px 10px;
