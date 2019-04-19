@@ -62,14 +62,6 @@ export const router = new Router({
           component: () => import('@views/userMailing/userMailing.vue')
         },
         {
-          path: '/addAddress',
-          name: 'addAddress',
-          meta: {
-            title: '新增地址'
-          },
-          component: () => import('@views/addAddress/addAddress.vue')
-        },
-        {
           path: '/goodsInfo',
           name: 'goodsInfo',
           meta: {
@@ -108,6 +100,22 @@ export const router = new Router({
             title: '地址管理'
           },
           component: () => import('@views/addressManage/addressManage.vue')
+        },
+        {
+          path: '/senderAdd',
+          name: 'senderAdd',
+          meta: {
+            title: '新增地址'//寄件人
+          },
+          component: () => import('@views/addressManage/senderAdd/senderAdd.vue')
+        },
+        {
+          path: '/recipientAdd',
+          name: 'recipientAdd',
+          meta: {
+            title: '新增地址'//收件人
+          },
+          component: () => import('@views/addressManage/recipientAdd/recipientAdd.vue')
         },
         {
           path: '/personalz',

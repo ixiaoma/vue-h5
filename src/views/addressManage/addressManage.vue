@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <!-- <button class="button_blue_long">保存</button> -->
+    <button class="button_blue_long" @click="toPage">新增地址</button>
   </div>
 </template>
 <script src="./addressManage.js"></script>

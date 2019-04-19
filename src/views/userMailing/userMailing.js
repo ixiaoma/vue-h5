@@ -126,7 +126,7 @@ export default {
         toPage(value){
             let pushName=''
             if(value==1){
-                pushName='addAddress'
+                pushName='senderAdd'
             }else if(value==2){
                 pushName='goodsInfo'
             }else if(value==3){
