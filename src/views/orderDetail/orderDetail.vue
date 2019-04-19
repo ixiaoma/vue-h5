@@ -41,7 +41,7 @@
                 <div class="row-left">
                     <p>2019/10/10</p>
                     <p>20:33</p>
-                    <i class="fa fa-circle rowicon"></i>
+                    <i class="fa fa-circle rowicon blue-font"></i>
                 </div>
                 <p class="row-right">北京北京</p>
             </div>

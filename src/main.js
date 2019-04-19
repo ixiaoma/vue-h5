@@ -7,7 +7,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import './main.css'
 
 import { postFn, getFn } from './libs/http.js'
-import {Header,Button,Toast,InfiniteScroll,Spinner,Cell,Field,Popup,Picker,Radio,Checklist,Switch,TabContainer,TabContainerItem,Navbar,TabItem,Loadmore } from 'mint-ui';
+import {Header,Button,Toast,InfiniteScroll,Spinner,Cell,Field,Popup,Picker,Radio,Checklist,Switch,TabContainer,TabContainerItem,Navbar,TabItem,Loadmore,Search } from 'mint-ui';
 import wx from 'weixin-js-sdk';
 import _API from '@/libs/api'
 
@@ -26,6 +26,7 @@ Vue.component('mt-tab-container', TabContainer);
 Vue.component('mt-tab-container-item', TabContainerItem);
 Vue.component('mt-loadmore', Loadmore);
 Vue.component('mt-checklist', Checklist);
+Vue.component('mt-search', Search);
 Vue.use(InfiniteScroll);
 Vue.config.productionTip = false;
 

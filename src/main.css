@@ -118,7 +118,7 @@ div {
   color: red;
 }
 .blue-font{
-  color: #2e95f7;
+  color: #2e95f7!important;
 }
 .color999-font{
   color: #999;

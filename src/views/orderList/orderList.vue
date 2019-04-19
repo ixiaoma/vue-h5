@@ -6,6 +6,9 @@
             <mt-tab-item id="2">待支付</mt-tab-item>
             <mt-tab-item id="4">已签收</mt-tab-item>
         </mt-navbar>
+        <div class="search">
+            <mt-search  cancel-text="取消"></mt-search>
+        </div>
         <mt-loadmore class="order-list" :top-method="loadTop" ref="loadmore">
             <ul v-infinite-scroll="loadMore"
                 infinite-scroll-disabled="loading"
