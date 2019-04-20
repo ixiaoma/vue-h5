@@ -9,7 +9,8 @@ export default {
         nickname:'',
         userType:'',
         createdTime:''
-      }
+      },
+      userType:'',
     }
   },
   filters: {

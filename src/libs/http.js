@@ -33,13 +33,13 @@ function err( res ){
   if(res.request.status==403){
     sessionStorage.removeItem('wechataccess_token');
     sessionStorage.removeItem('access_token');
-    let userInfo=JSON.parse(sessionStorage.getItem('userInfo'))
-    if(userInfo.userType=="customer"){//普通用户
+    let userType=JSON.parse(sessionStorage.getItem('userType'))
+    if(userType=="customer"){//普通用户
         window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd902e0366907c099&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authPage') + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
-    }else if(userInfo.userType=="courier"){//派送员
+    }else if(userType=="courier"){//派送员
       window.location.href="http://m.express.ui-tech.cn/login"
       // window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd902e0366907c099&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authzPage') + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';  
-    }else if(!userInfo){
+    }else if(!userType){
       router.push('login');
     }
   }else{

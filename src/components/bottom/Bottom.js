@@ -34,9 +34,9 @@ export default {
   },
   created(){
     this.userInfo={}
-    this.userInfo=JSON.parse(sessionStorage.getItem('userInfo'))
+    this.userType=JSON.parse(sessionStorage.getItem('userType'))
     // this.userInfo.userType='courier'
-    if(this.userInfo.userType=='courier'){
+    if(this.userType=='courier'){
       this.menu=[
         {
           icon: "iconfont icon-icon--copy",

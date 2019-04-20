@@ -39,6 +39,8 @@ export default {
           // sessionStorage.setItem('wechataccess_token', res.headers.authorization);
           sessionStorage.setItem('wechataccess_token', res.data.data.accessToken);
           sessionStorage.setItem('access_token', res.data.data.auth[0]);
+          sessionStorage.setItem('userType', res.data.data.userType);
+          let beforeUrl = sessionStorage.getItem("beforeUrl");
           this.getUserInfo();   
         }else{
           this.Toast({

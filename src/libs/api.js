@@ -16,7 +16,7 @@ let API_WECHATLOGIN_GET_WECHAT_SIGN = `${baseUrl}wechat/sign`
 //登陆接口
 let API_LOGIN =baseUrl +'auth/login'
 //个人中心获取用户信息
-let PERSONAL_INFO=`${baseUrl}user/app/userinfo`
+let PERSONAL_INFO=`${baseUrl}user/info`
 //个人信息获取
 let API_USER_INFO_DETAIL = `${baseUrl}app/user_info/detail`
 //个人信息保存
