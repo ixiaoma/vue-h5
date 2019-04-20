@@ -29,7 +29,7 @@ export default {
      * 如果url中有code，并且本地session中没有token，那么就用code去换取access_token
      * 如果url中有code，并且本地session中有token，则跳转到个人中心（这种情况发生在第一次登录后点击了返回按钮，重新回到了授权页）
      */
-    if (this.$route.query.code && !sessionStorage.getItem('wechataccess_token')) {
+    if (this.$route.query.code && !sessionStorage.getItem('access_token')) {//sessionStorage.getItem('wechataccess_token')
       var url = this.GLOBAL.API_WECHAT_LOGIN;
       var params = {
         code:this.$route.query.code
@@ -38,6 +38,7 @@ export default {
         if(res.status == 200){
           // sessionStorage.setItem('wechataccess_token', res.headers.authorization);
           sessionStorage.setItem('wechataccess_token', res.data.data.accessToken);
+          sessionStorage.setItem('access_token', res.data.data.auth[0]);
           this.getUserInfo();   
         }else{
           this.Toast({
@@ -47,7 +48,7 @@ export default {
           })
         }
       })
-    } else if (this.$route.query.code && sessionStorage.getItem('wechataccess_token')){
+    } else if (this.$route.query.code && sessionStorage.getItem('access_token')){//sessionStorage.getItem('wechataccess_token')
       this.$router.push('homeList');
     }
   },

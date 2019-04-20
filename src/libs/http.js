@@ -8,13 +8,14 @@ axios.defaults.baseURL = '';
 
 axios.interceptors.request.use(config => {
   let wechataccess_token = sessionStorage.getItem("wechataccess_token");
+  let access_token = sessionStorage.getItem("access_token");
   if(config.url == _API.API_LOGIN||config.url == _API.API_WECHAT_LOGIN || config.url == _API.API_COMMODITYS_PHONE_LIST) {//用code换取token的接口不用加token
     config.headers = {
       'Content-Type': 'application/json'
     };
   }else{
     config.headers = {
-      'Authorization': `Bearer ${wechataccess_token}`,
+      'Authorization': `Bearer ${access_token}`,
       'Content-Type': 'application/json'
     };
   }
@@ -31,6 +32,7 @@ function err( res ){
   Indicator.close();
   if(res.request.status==403){
     sessionStorage.removeItem('wechataccess_token');
+    sessionStorage.removeItem('access_token');
     let userInfo=JSON.parse(sessionStorage.getItem('userInfo'))
     if(userInfo.userType=="customer"){//普通用户
         window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd902e0366907c099&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authPage') + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';

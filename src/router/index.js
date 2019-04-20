@@ -221,7 +221,8 @@ export const router = new Router({
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title;
   if (to.name != 'authPage'&&to.name != 'authzPage'&& to.name != 'login') {
-    let _token = sessionStorage.getItem('wechataccess_token');
+    // let _token = sessionStorage.getItem('wechataccess_token');
+    let _token = sessionStorage.getItem('access_token');
       // if(to.name=="personalz"){
       //     //假设派送员是单独的
       //     if(!_token){
