@@ -33,8 +33,7 @@ export default {
     }
   },
   created(){
-    this.userInfo={}
-    this.userType=JSON.parse(sessionStorage.getItem('userType'))
+    this.userType=sessionStorage.getItem('userType')
     // this.userInfo.userType='courier'
     if(this.userType=='courier'){
       this.menu=[
