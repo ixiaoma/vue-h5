@@ -28,11 +28,9 @@ export default {
             } else {
                 this.$post(url, params).then(res => {
                     if (res.status == 200) {
-                        // sessionStorage.setItem('wechataccess_token', res.headers.authorization);
-                        // sessionStorage.setItem('wechataccess_token', res.data.data.accessToken);
                         sessionStorage.setItem('access_token', res.data.data.auth[0]);
-                        // this.loadCode()
-                        // this.userInfoLoad()        
+                        sessionStorage.setItem('userType','courier');
+                        this.userInfoLoad()        
                         Cookies.set('username',this.name) 
                         Cookies.set('password',this.password)             
                     }
@@ -41,21 +39,10 @@ export default {
                 })
             }
         },
-        userInfoLoad(){
-            // let url=this.GLOBAL.PERSONAL_INFO
-            // this.$get(url).then(res=>{
-            //     if(res.data.retCode==200){
-            //         this.userInfo=res.data.data;     
-            //         sessionStorage.setItem('userInfo',JSON.stringify(this.userInfo))    
-            //         this.$router.push({ name: 'personalz' })             
-            //     }
-            // })
+        userInfoLoad(){           
             this.$router,push({
                 name:'personalz'
             })
-        },
-        loadCode(){
-            window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd902e0366907c099&redirect_uri=' + encodeURIComponent('http://' + this.GLOBAL.authUrl + '/codePage') + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
         }
     },
     created() {

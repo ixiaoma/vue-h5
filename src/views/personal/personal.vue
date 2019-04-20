@@ -7,7 +7,7 @@
             <img :src="userInfo.wechatImage">
             <div class="personalInfo">
                 <p>昵称：{{userInfo.nickname}}({{userType|typeFilter}})</p>
-                <p>关注时间：{{userInfo.createdTime}}</p>
+                <!--<p>关注时间：{{userInfo.createdTime}}</p>-->
             </div>
             <div class="topage"><i class="fa fa-chevron-right"  @click="toPage"></i></div>
         </div>

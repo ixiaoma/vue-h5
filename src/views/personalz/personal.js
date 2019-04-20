@@ -6,15 +6,9 @@ export default {
     return {
       userInfo:{
         wechatImage:'',
-        nickname:'',
-        userType:'',
-        createdTime:''
+        nickname:''
       },
-      moneyInfo:{
-        orderAmount:0,
-        withdrawCash:0,
-        balance:0
-      }
+      userType:''
     }
   },
   filters: {
@@ -49,6 +43,7 @@ export default {
   },
   created(){
     this.$store.commit("setMenu", [false, true]);
+    this.userType=sessionStorage.getItem('userType')
     this.userInfoLoad()
   }
 }

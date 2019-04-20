@@ -6,9 +6,7 @@ export default {
     return {
       userInfo:{
         wechatImage:'',
-        nickname:'',
-        userType:'',
-        createdTime:''
+        nickname:''
       },
       userType:'',
     }
@@ -31,5 +29,7 @@ export default {
   },
   created(){
     this.$store.commit("setMenu", [false, true]);
+    this.userType=sessionStorage.getItem('userType')
+    this.userInfo=JSON.parse(sessionStorage.getItem('userInfo'))   
   }
 }
