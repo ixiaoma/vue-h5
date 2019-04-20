@@ -36,8 +36,6 @@ export default {
             this.userInfo=res.data.data;    
             sessionStorage.setItem('userInfo',JSON.stringify(this.userInfo))
         }
-      }).then(()=>{
-        this.getPersonalMoney();
       })
     },
     toPage(value){
@@ -51,6 +49,6 @@ export default {
   },
   created(){
     this.$store.commit("setMenu", [false, true]);
-    // this.userInfoLoad()
+    this.userInfoLoad()
   }
 }

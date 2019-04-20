@@ -29,7 +29,7 @@ export default {
                 this.$post(url, params).then(res => {
                     if (res.status == 200) {
                         sessionStorage.setItem('wechataccess_token', res.headers.authorization);
-                        this.loadCode()
+                        // this.loadCode()
                         // this.userInfoLoad()        
                         Cookies.set('username',this.name) 
                         Cookies.set('password',this.password)             
@@ -48,6 +48,9 @@ export default {
             //         this.$router.push({ name: 'personalz' })             
             //     }
             // })
+            this.$router,push({
+                name:'personalz'
+            })
         },
         loadCode(){
             window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd902e0366907c099&redirect_uri=' + encodeURIComponent('http://' + this.GLOBAL.authUrl + '/codePage') + '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';

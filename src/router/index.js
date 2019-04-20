@@ -222,15 +222,15 @@ router.beforeEach((to, from, next) => {
   document.title = to.meta.title;
   if (to.name != 'authPage'&&to.name != 'authzPage'&& to.name != 'login') {
     let _token = sessionStorage.getItem('wechataccess_token');
-      if(to.name=="personalz"){
-          //假设派送员是单独的
-          if(!_token){
-            sessionStorage.setItem('beforeUrl', to.fullPath);
-            window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd902e0366907c099&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authzPage') + '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
-          }else{
-            next()
-          }
-      }else{
+      // if(to.name=="personalz"){
+      //     //假设派送员是单独的
+      //     if(!_token){
+      //       sessionStorage.setItem('beforeUrl', to.fullPath);
+      //       window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd902e0366907c099&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authzPage') + '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
+      //     }else{
+      //       next()
+      //     }
+      // }else{
           //普通用户
           if (!_token) {
             sessionStorage.setItem('beforeUrl', to.fullPath);
@@ -238,7 +238,7 @@ router.beforeEach((to, from, next) => {
           } else {
             next();
           }
-      } 
+      // } 
   } else {
     next();
   }
