@@ -6,7 +6,10 @@ export default {
   methods: {
     getUserInfo() {//获取用户信息
       var url = this.GLOBAL.PERSONAL_INFO;
-      this.$get(url).then(res=>{
+      var params={
+        openid:this.openid
+      }
+      this.$get(url,params).then(res=>{
         if(res.data.retCode == 200){
           this.userInfo=res.data.data;         
           sessionStorage.setItem('userInfo',JSON.stringify(this.userInfo))
@@ -40,7 +43,7 @@ export default {
           sessionStorage.setItem('wechataccess_token', res.data.data.accessToken);
           sessionStorage.setItem('access_token', res.data.data.auth[0]);
           sessionStorage.setItem('userType', res.data.data.userType);
-          let beforeUrl = sessionStorage.getItem("beforeUrl");
+          this.openid=res.data.data.openid
           this.getUserInfo();   
         }else{
           this.Toast({
