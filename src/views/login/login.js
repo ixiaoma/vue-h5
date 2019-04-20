@@ -54,7 +54,7 @@ export default {
             })
         },
         loadCode(){
-            window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd902e0366907c099&redirect_uri=' + encodeURIComponent('http://' + this.GLOBAL.authUrl + '/codePage') + '&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
+            window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd902e0366907c099&redirect_uri=' + encodeURIComponent('http://' + this.GLOBAL.authUrl + '/codePage') + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
         }
     },
     created() {
