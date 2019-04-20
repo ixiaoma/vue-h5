@@ -258,7 +258,7 @@ router.beforeEach((to, from, next) => {
 router.afterEach((to, from) => {// true 时 为 IOS 设备
   if (window.__wxjs_is_wkwebview) {  // IOS
     if (window.entryUrl == '' || window.entryUrl == undefined) { //记录该地址config配置时使用
-      var url = `http://bookshop.jcwl2010.com${to.fullPath}`//var url = `http://bookshop.ui-tech.cn${to.fullPath}`//var url = `http://bookshop.jcwl2010.com${to.fullPath}`
+      var url = `http://m.express.ui-tech.cn${to.fullPath}`
       window.entryUrl = url// 将后面的参数去除
     }
   }
