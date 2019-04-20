@@ -23,11 +23,6 @@ export default {
   },
   mounted(){
     this.userInfo=JSON.parse(sessionStorage.getItem('userInfo'))
-    this.title=this.$route.meta.title
-    // if(this.$route.name=="order"&&(this.userInfo.userType==1||this.userInfo.userType==4||this.userInfo.userType==5)){
-    //   this.title='所有订单'
-    // }else{
-    //   this.title=this.$route.meta.title
-    // }      
+    this.title=this.$route.meta.title  
   }
 }

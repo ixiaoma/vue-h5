@@ -3,7 +3,7 @@ export default {
   components: {},
   data(){
     return {
-      userType:1,
+      userType:'',
       menu: [],
       userInfo:null
     }
@@ -34,9 +34,9 @@ export default {
   },
   created(){
     this.userInfo={}
-    // this.userInfo=JSON.parse(sessionStorage.getItem('userInfo'))
+    this.userInfo=JSON.parse(sessionStorage.getItem('userInfo'))
     // this.userInfo.userType=1
-    if(this.userInfo.userType==1){
+    if(this.userInfo.userType=='courier'){
       this.menu=[
         {
           icon: "iconfont icon-icon--copy",

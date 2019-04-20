@@ -6,8 +6,8 @@ export default {
     return {
       userInfo:{
         wechatImage:'',
-        nickname:'叶落森',
-        userType:'2',
+        nickname:'',
+        userType:'',
         createdTime:''
       },
       moneyInfo:{
@@ -20,9 +20,9 @@ export default {
   filters: {
     typeFilter( e ){
       let name = '';
-      if (e == '1') {
+      if (e == 'courier') {
         name = "派送员";
-      } else if (e == "2") {
+      } else if (e == "customer") {
         name = "普通会员"
       }
       return name;
