@@ -36,7 +36,8 @@ export default {
       }
       this.$post(url,params).then(res => {//通过code去获取请求接口所携带的access_token(并非微信的token)
         if(res.status == 200){
-          sessionStorage.setItem('wechataccess_token', res.headers.authorization);
+          // sessionStorage.setItem('wechataccess_token', res.headers.authorization);
+          sessionStorage.setItem('wechataccess_token', res.data.data.accessToken);
           this.getUserInfo();   
         }else{
           this.Toast({

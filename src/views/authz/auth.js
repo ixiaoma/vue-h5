@@ -36,8 +36,10 @@ export default {
       }
       this.$post(url,params).then(res => {
         if(res.status == 200){
-          sessionStorage.setItem('wechataccess_token', res.headers.authorization);
-          if(res.headers.authorization){
+          // sessionStorage.setItem('wechataccess_token', res.headers.authorization);
+          sessionStorage.setItem('wechataccess_token', res.data.data.accessToken);
+          if(res.data.data.accessToken){
+          // if(res.headers.authorization){
             this.getUserInfo();   
           }else{
             this.$router.push('login');  

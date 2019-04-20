@@ -28,7 +28,8 @@ export default {
             } else {
                 this.$post(url, params).then(res => {
                     if (res.status == 200) {
-                        sessionStorage.setItem('wechataccess_token', res.headers.authorization);
+                        // sessionStorage.setItem('wechataccess_token', res.headers.authorization);
+                        sessionStorage.setItem('wechataccess_token', res.data.data.accessToken);
                         // this.loadCode()
                         // this.userInfoLoad()        
                         Cookies.set('username',this.name) 
