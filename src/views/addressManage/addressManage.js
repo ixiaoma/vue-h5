@@ -63,6 +63,36 @@ export default {
                     name:'senderAdd'
                 })
             }
+        },
+        toAdd(value,id){
+            if(this.selected=='1'){
+                this.$router.push({
+                    name:'recipientAdd',
+                    query:{
+                        type:'addressedit',
+                        id:id
+                    }
+                })
+            }else if(this.selected=='2'){
+                this.$router.push({
+                    name:'senderAdd',
+                    query:{
+                        type:'addressedit',
+                        id:id
+                    }
+                })
+            }
+        },
+        openDele(id){
+            this.MessageBox.confirm('确定执行此操作?').then(action => {
+                if(action=='confirm'){
+                    this.Toast("ok")
+                }else{
+                    console.log('取消')
+                }
+            }).catch(err=>{
+                console.log('取消')
+            });
         }             
     },
     created() {

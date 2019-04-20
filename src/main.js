@@ -7,7 +7,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import './main.css'
 
 import { postFn, getFn } from './libs/http.js'
-import {Header,Button,Toast,InfiniteScroll,Spinner,Cell,Field,Popup,Picker,Radio,Checklist,Switch,TabContainer,TabContainerItem,Navbar,TabItem,Loadmore,Search } from 'mint-ui';
+import {Header,Button,Toast,MessageBox,InfiniteScroll,Spinner,Cell,Field,Popup,Picker,Radio,Checklist,Switch,TabContainer,TabContainerItem,Navbar,TabItem,Loadmore,Search } from 'mint-ui';
 import wx from 'weixin-js-sdk';
 import _API from '@/libs/api'
 
@@ -33,6 +33,7 @@ Vue.config.productionTip = false;
 Vue.prototype.$post = postFn;
 Vue.prototype.$get = getFn;
 Vue.prototype.Toast = Toast;
+Vue.prototype.MessageBox = MessageBox;
 Vue.prototype.wx = wx;
 Vue.prototype.bus = new Vue();
 Vue.prototype.GLOBAL = _API;

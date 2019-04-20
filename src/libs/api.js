@@ -1,6 +1,7 @@
 import { baseUrl } from "@/config/env"
 
-const API_AUTH = `${baseUrl}auth/`
+// const API_AUTH = `${baseUrl}auth/`
+const API_AUTH = `${baseUrl}`
 
 //授权回调域名
 let authUrl = "m.express.ui-tech.cn"//"m.express.ui-tech.cn"

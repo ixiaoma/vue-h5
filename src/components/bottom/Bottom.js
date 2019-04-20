@@ -35,7 +35,7 @@ export default {
   created(){
     this.userInfo={}
     this.userInfo=JSON.parse(sessionStorage.getItem('userInfo'))
-    // this.userInfo.userType=1
+    // this.userInfo.userType='courier'
     if(this.userInfo.userType=='courier'){
       this.menu=[
         {
