@@ -1,52 +1,19 @@
 export default{
   data(){
     return {
-      selected:'0',
+      selected:'全部',
       searchvalue:'',
       routerName:'',
-      systemUser:'courier',//courier
+      searchData:{
+        "objectType":"3",
+        "take":"10",
+        "skip":0,
+        "page":0,
+        "pageSize":"10",
+        "searchFilter":{"filters":[],"logic":"and"}
+      },
       loading:false,
-      listData:[1,2,3,4,5,6,7,8,9,10],
-      userNav:[
-        {
-          key:'100',
-          name:'全部'
-        },
-        {
-          key:'0',
-          name:'待取件'
-        },
-        {
-          key:'26',
-          name:'待支付'
-        },
-        {
-          key:'3',
-          name:'已签收'
-        }
-      ],
-      courierNav:[
-        {
-          key:'100',
-          name:'全部'
-        },
-        {
-          key:'5',
-          name:'待接单'
-        },
-        {
-          key:'0',
-          name:'待取件'
-        },
-        {
-          key:'1',
-          name:'已取件'
-        },
-        {
-          key:'4',
-          name:'已取消'
-        }
-      ]
+      listData:[]
     }
   },
   computed:{
@@ -55,27 +22,19 @@ export default{
       return flag
     },
     navList:function(){
-      let list = this.routerName == 'orderList' ? this.userNav : this.courierNav
+      let list = this.routerName == 'orderList' ? ['全部','待取件','待支付','已签收'] : ['全部','待接单','待取件','已取件','已取消']
       return list
     }
-
   },
   methods:{
     loadTop() {
       this.$refs.loadmore.onTopLoaded();
       this.loadMore()
     },
-    loadMore() {
+    loadMore(flag) {
       this.loading = true;
-      let obj = {
-        "objectType":"3",
-        "take":"10",
-        "skip":0,
-        "page":1,
-        "pageSize":"10",
-        "searchFilter":{"filters":[],"logic":"and"}
-      }
-      this.$post(this.GLOBAL.API_ORDER_LIST,obj).then(res=>{
+      !flag && this.searchData.page ++
+      this.$post(this.GLOBAL.API_ORDER_LIST,this.searchData).then(res=>{
         res.data.records.forEach(item=>{
           let status = ''
           switch (item.orderStatus){
@@ -102,6 +61,17 @@ export default{
         })
           this.listData = res.data.records
       })
+    },
+    searchFn(){
+      this.searchData.page = 1
+      this.searchData.searchFilter.filters=[]
+      if(this.searchvalue){
+          this.searchData.searchFilter.filters.push({value: this.searchvalue, operator: "eq", field: "searchValue"})
+      }
+      if(this.selected != '全部'){
+        this.searchData.searchFilter.filters.push({value: this.selected, operator: "eq", field: "orderStatus"})
+      }
+      this.loadMore(1)
     },
     toPayOrder(item){
 

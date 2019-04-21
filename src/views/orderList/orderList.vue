@@ -2,11 +2,11 @@
     <div class="order-page box-style">
         <div v-if='showSearch' class="search">
             <form action="" target="frameFile" onsubmit="return false;">
-                <mt-search v-model="searchvalue" cancel-text="取消" placeholder="搜索" @keyup.enter.native="loadMore"></mt-search>
+                <mt-search v-model="searchvalue" cancel-text="取消" placeholder="搜索" @keyup.enter.native="searchFn"></mt-search>
             </form>
         </div>
-        <mt-navbar class="nav-bar border-style" v-model="selected" @click.native="loadMore">
-            <mt-tab-item v-for="(item,index) in navList" :key='index' :id='item.key'>{{item.name}}</mt-tab-item>
+        <mt-navbar class="nav-bar border-style" v-model="selected" @click.native="searchFn">
+            <mt-tab-item v-for="(item,index) in navList" :key='index' :id='item'>{{item}}</mt-tab-item>
         </mt-navbar>
         <mt-loadmore class="order-list" :top-method="loadTop" ref="loadmore">
             <ul v-infinite-scroll="loadMore"
