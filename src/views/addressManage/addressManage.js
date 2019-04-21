@@ -6,13 +6,26 @@ export default {
         return {
             selected:'13',
             searchvalue:'',
-            addressData:[]
-            
+            addressData:[],
+            loading:false,
+            page:1,
+            num:0
         }
     },
     computed: {},
     methods: {
-        selectchang(num){
+        selectchang(){
+            this.page = 1 
+            this.num = 1
+            this.addressData =[] 
+            this.getAddress()
+        },
+        loadTop() {
+            this.$refs.loadmore.onTopLoaded();
+            // this.getAddress()
+        },
+        down(){
+            this.page = ++ this.num 
             this.getAddress()
         },
         getAddress(){
@@ -20,19 +33,25 @@ export default {
                 "objectType":this.selected,
                 "take":"10",
                 "skip":0,
-                "page":1,
+                "page":this.page,
                 "pageSize":"10",
                 "searchFilter":{"filters":[],"logic":"and"}
             }
             this.searchvalue && params.searchFilter.filters.push({field: "name", operator: "contains", value: this.searchvalue})
             this.$post(this.GLOBAL.API_GET_ADDRESS,params).then(res=>{
-                    this.addressData = res.data.records
+                if(res.status==200){
+                    this.addressData = this.addressData.concat(res.data.records)
+                }else{
+                    this.addressData =[] 
+                }
+            }).catch(err=>{
+                this.addressData =[] 
             })
         },
-        setConfig() {
-            this.$store.commit("setMenu", [false, true]);
-        },
         loadListData(){
+            this.page = 1 
+            this.num = 1
+            this.addressData =[] 
             this.getAddress()
         },
         toPage(){
@@ -69,7 +88,13 @@ export default {
             this.MessageBox.confirm('确定执行此操作?').then(action => {
                 if(action=='confirm'){
                     this.$post(this.GLOBAL.API_DEL_ADDRESS,[id]).then(res=>{
-                        this.getAddress()
+                        if(res.status==200){
+                            for (let i = 0; i <  this.addressData.length; i++) {
+                                if(this.addressData[i].id==id){
+                                    this.addressData.splice(i,1)
+                                }
+                            }
+                        }
                     })
                     this.Toast("ok")
                 }else{
@@ -81,8 +106,7 @@ export default {
         }             
     },
     created() {
-        this.setConfig()
+        this.$store.commit("setMenu", [false, true]);
         this.$route.query.select && (this.selected = this.$route.query.select)
-        this.getAddress()
     }
 }

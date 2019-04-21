@@ -5,7 +5,8 @@ export default{
       searchvalue:'',
       routerName:'',
       systemUser:'courier',//courier
-      listData:[],
+      loading:false,
+      listData:[1,2,3,4,5,6,7,8,9,10],
       userNav:[
         {
           key:'0',
@@ -52,23 +53,13 @@ export default{
     showSearch:function (){
       let flag = this.routerName != 'orderList'
       return flag
-    },
-    navList:function(){
-      let list = this.routerName == 'orderList' ? this.userNav : this.courierNav
-      return list
     }
   },
   methods:{
     loadTop() {
       this.$refs.loadmore.onTopLoaded();
-      this.loadMore()
     },
     getInitData(){
-      //{value: "待取件", operator: "eq", field: "orderStatus"}
-      
-    },
-    loadMore() {
-      this.loading = true;
       let obj = {
         "objectType":"3",
         "take":"10",
@@ -78,32 +69,19 @@ export default{
         "searchFilter":{"filters":[],"logic":"and"}
       }
       this.$post(this.GLOBAL.API_ORDER_LIST,obj).then(res=>{
-        res.data.records.forEach(item=>{
-          let status = ''
-          switch (item.orderStatus){
-            case 0:
-              status = '待取件'
-              break;
-            case 1:
-              status = '已取件'
-              break;
-            case 2:
-              status = '待取件'
-              break;
-            case 3:
-              status = '已签收'
-              break;
-            case 4:
-              status = '已取消'
-              break;
-            case 5:
-              status = '待接单'
-              break;
-          }
-          item.status = status
-        })
-          this.listData = res.data.records
+
       })
+    },
+    loadMore() {
+      
+      this.loading = true;
+      setTimeout(() => {
+        let last = this.listData[this.listData.length - 1];
+        for (let i = 1; i <= 10; i++) {
+          this.listData.push(last + i);
+        }
+        this.loading = false;
+      }, 2500);
     },
     toPayOrder(item){
 
@@ -153,8 +131,8 @@ export default{
         id:item.key
       })
     },
-    toDetail(detailId){
-      this.$router.push({name:'orderDetail',detailId:detailId})
+    toDetail(item){
+      this.$router.push({name:'orderDetail'})
     },
     loadListData(){
       
@@ -163,5 +141,6 @@ export default{
   created(){
     this.routerName = this.$route.name
     this.$store.commit("setMenu", [true, false]);
+    this.getInitData()
   }
 }

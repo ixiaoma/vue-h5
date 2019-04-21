@@ -9,32 +9,35 @@
       </form>
     </div>
     <div class="navbar">
-      <mt-navbar v-model="selected" @click.native="selectchang(selected)">
+      <mt-navbar v-model="selected" @click.native="selectchang()">
         <mt-tab-item id="13">收件人地址</mt-tab-item>
         <mt-tab-item id="5">寄件人地址</mt-tab-item>
       </mt-navbar>
     </div>
-    <div class="info">
-        <div class="list-item" v-for="(item,key) in addressData" :key="key">
-        <div class="address-text">
-          <p>
-            <span>{{item.name}}</span>
-            <span>{{item.telephone}}</span>
-          </p>
-          <p>{{ item.province + item.city + item.county}}</p>
-        </div>
-        <div class="handle">
-          <div class="operation">
-            <p @click="toAdd(item.id)">
-              <i class="fa fa-pencil fa-fw"></i>编辑
-            </p>
-            <p @click="openDele(item.id)">
-              <i class="fa fa-trash-o fa-fw"></i>删除
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <mt-loadmore class="info" :top-method="loadTop" ref="loadmore">
+            <ul v-infinite-scroll="down"
+                infinite-scroll-disabled="loading">
+                <li class="list-item" v-for="(item,key) in addressData" :key="key">
+                    <div class="address-text">
+                      <p>
+                        <span>{{item.name}}</span>
+                        <span>{{item.telephone}}</span>
+                      </p>
+                      <p>{{ item.province + item.city + item.county}}</p>
+                    </div>
+                    <div class="handle">
+                      <div class="operation">
+                        <p @click="toAdd(item.id)">
+                          <i class="fa fa-pencil fa-fw"></i>编辑
+                        </p>
+                        <p @click="openDele(item.id)">
+                          <i class="fa fa-trash-o fa-fw"></i>删除
+                        </p>
+                      </div>
+                    </div>
+                </li>
+            </ul>
+    </mt-loadmore>
     <button class="button_blue_long" @click="toPage">新增地址</button>
   </div>
 </template>
