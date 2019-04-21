@@ -33,7 +33,7 @@ function err( res ){
   if(res.request.status==403){
     sessionStorage.removeItem('wechataccess_token');
     sessionStorage.removeItem('access_token');
-    window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd902e0366907c099&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authPage') + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';   
+    // window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd902e0366907c099&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authPage') + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';   
   }else{
     Toast(`接口${res.request.status}错误：${res.config.url}`);
   }

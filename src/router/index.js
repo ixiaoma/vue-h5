@@ -218,32 +218,32 @@ export const router = new Router({
   ]
 });
 
-router.beforeEach((to, from, next) => {
-  document.title = to.meta.title;
-  if (to.name != 'authPage') {
-    // let _token = sessionStorage.getItem('wechataccess_token');
-    let _token = sessionStorage.getItem('access_token');
-    if (!_token) {
-      sessionStorage.setItem('beforeUrl', to.fullPath);
-      window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd902e0366907c099&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authPage') + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
-    } else {
-      next();
-    }
-  } else {
-    next();
-  }
-  //禁用分享功能,因为分享功能存在bug（写在路由中是确保刷新后依然没有分享功能）
-  if (typeof WeixinJSBridge == "undefined") {
-    if (document.addEventListener) {
-      document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-    } else if (document.attachEvent) {
-      document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
-      document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
-    }
-  } else {
-    onBridgeReady();
-  }
-});
+// router.beforeEach((to, from, next) => {
+//   document.title = to.meta.title;
+//   if (to.name != 'authPage') {
+//     // let _token = sessionStorage.getItem('wechataccess_token');
+//     let _token = sessionStorage.getItem('access_token');
+//     if (!_token) {
+//       sessionStorage.setItem('beforeUrl', to.fullPath);
+//       window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd902e0366907c099&redirect_uri=' + encodeURIComponent('http://' + _API.authUrl + '/authPage') + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
+//     } else {
+//       next();
+//     }
+//   } else {
+//     next();
+//   }
+//   //禁用分享功能,因为分享功能存在bug（写在路由中是确保刷新后依然没有分享功能）
+//   if (typeof WeixinJSBridge == "undefined") {
+//     if (document.addEventListener) {
+//       document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+//     } else if (document.attachEvent) {
+//       document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+//       document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+//     }
+//   } else {
+//     onBridgeReady();
+//   }
+// });
 
 router.afterEach((to, from) => {// true 时 为 IOS 设备
   if (window.__wxjs_is_wkwebview) {  // IOS
