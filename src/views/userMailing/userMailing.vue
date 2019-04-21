@@ -18,8 +18,8 @@
       <div class="info">
             <mt-field label="快递公司" placeholder="请选择" v-model="expressCompany" readonly @click.native="expressCompanyLoad"></mt-field>
             <mt-field label="寄件类型" placeholder="请选择" v-model="mailingType" readonly @click.native="mailingTypeLoad"></mt-field>
-            <mt-field label="寄件方式" placeholder="请输入寄件方式" v-model="mailingWay"></mt-field>
-            <mt-field label="付款方式" placeholder="强输入付款方式" v-model="payWay"></mt-field> 
+            <mt-field label="寄件方式" placeholder="请输入寄件方式" v-model="mailingWay" readonly></mt-field>
+            <mt-field label="付款方式" placeholder="请输入付款方式" v-model="payWay" readonly></mt-field> 
       </div>
       <div class="info">
             <mt-field label="物品信息" placeholder="请选择" v-model="goods" readonly @click.native="toPage(2)"></mt-field>

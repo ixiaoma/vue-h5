@@ -37,6 +37,14 @@ let API_DEL_ADDRESS = `${baseUrl}addressbooks/dels`
 let API_GET_ADDRESS_DETAILS = `${baseUrl}addressbooks/`
 
 
+//----------------我要寄件页面 jiangyx-----------------
+//我要寄件
+let API_ME_MAILING =baseUrl +'order/save'
+//快递公司
+let API_SUBORDINATE_COMPANY= baseUrl+'subordinateCompany/query'
+//寄件类型
+let API_SUBORDINATE_TYPE= baseUrl+'express/price/query/expresscompany'
+
 
 
 export default{
@@ -55,5 +63,8 @@ export default{
   API_ADD_ADDRESS,
   API_DEL_ADDRESS,
   API_GET_ADDRESS_DETAILS,
-  API_EDIT_ADDRESS
+  API_EDIT_ADDRESS,
+  API_ME_MAILING,
+  API_SUBORDINATE_COMPANY,
+  API_SUBORDINATE_TYPE
 }

@@ -24,8 +24,11 @@ export default {
   },
   methods: {
     userInfoLoad(){
-      let url=this.GLOBAL.PERSONAL_INFO
-      this.$get(url).then(res=>{
+      var url = this.GLOBAL.PERSONAL_INFO;
+      var params={
+        openid:sessionStorage.getItem('openid')
+      }
+      this.$get(url,params).then(res=>{
         if(res.data.retCode==200){
             this.userInfo=res.data.data;    
             sessionStorage.setItem('userInfo',JSON.stringify(this.userInfo))

@@ -47,6 +47,7 @@ export default {
           sessionStorage.setItem('access_token', res.data.data.auth[0]);
           sessionStorage.setItem('userType', res.data.data.userType);
           this.openid=res.data.data.openid
+          sessionStorage.setItem('openid', res.data.data.openid);
           this.getUserInfo();   
         }else{
           this.Toast({

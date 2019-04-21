@@ -19,7 +19,7 @@ export default {
             let md5_password = md5(this.password);
             let params = {
                 username: this.name,
-                password: md5_password
+                password: this.password
             }
             if (!params.username) {
                 this.Toast('请输入用户名')
@@ -27,9 +27,10 @@ export default {
                 this.Toast('请输入密码')
             } else {
                 this.$post(url, params).then(res => {
-                    if (res.status == 200) {
-                        sessionStorage.setItem('access_token', res.data.data.auth[0]);
-                        sessionStorage.setItem('userType','courier');
+                    if (res.status == 200) {                    
+                        sessionStorage.setItem('access_token', res.headers.authorization)
+                        sessionStorage.setItem('userType','customer');
+                        // sessionStorage.setItem('userType','courier');
                         this.userInfoLoad()        
                         Cookies.set('username',this.name) 
                         Cookies.set('password',this.password)             
@@ -40,7 +41,7 @@ export default {
             }
         },
         userInfoLoad(){           
-            this.$router,push({
+            this.$router.push({
                 name:'personalz'
             })
         }

@@ -8,8 +8,8 @@ export default {
             receiptInfo: '',//收件人信息
             expressCompany: '',//快递公司
             mailingType: '',//寄件类型
-            mailingWay: '',//寄件方式
-            payWay: '',//付款方式
+            mailingWay: '楼点点',//寄件方式
+            payWay: '现结',//付款方式  0
             goods:'',//物品信息
             valuation:'',//保价
             agreevalue:true,//同意复选框
@@ -46,27 +46,20 @@ export default {
             this.$store.commit("setMenu", [true, true]);
         },
         expressCompanyLoad() {//快递公司
-            // this.slotExpressCompany[0].values = []
-            // let params = {
-
-            // }
-            // let url = ''
-            // this.$post(url, params).then(res => {
-            //     if (res.data.retCode == 200) {
-            //         let slotExpressCompany = res.data.data
-            //         slotExpressCompany.map(item => {
-            //             let obj = {
-            //                 name: item.className,
-            //                 value: item.id
-            //             }
-            //             this.slotExpressCompany[0].values.push(obj)
-            //         })
-            //     }
-            // })
-            this.slotExpressCompany[0].values=[
-                {name:'测试1',value:'1'},
-                {name:'测试2',value:'2'}
-            ]
+            this.slotExpressCompany[0].values = []
+            let url = this.GLOBAL.API_SUBORDINATE_COMPANY
+            this.$post(url).then(res => {
+                if (res.status == 200) {
+                    let slotExpressCompany = res.data.data
+                    slotExpressCompany.map(item => {
+                        let obj = {
+                            name: item.name,
+                            value: item.id
+                        }
+                        this.slotExpressCompany[0].values.push(obj)
+                    })
+                }
+            })
             this.popupshowEC = true
         },
         expressCompanyChange(picker, values) {//快递公司 改变  
@@ -76,27 +69,23 @@ export default {
             }
         },
         mailingTypeLoad() {//寄件类型
-            // this.slotsMailingType[0].values = []
-            // let params = {
-
-            // }
-            // let url = ''
-            // this.$post(url, params).then(res => {
-            //     if (res.data.retCode == 200) {
-            //         let slotsMailingType = res.data.data
-            //         slotsMailingType.map(item => {
-            //             let obj = {
-            //                 name: item.className,
-            //                 value: item.id
-            //             }
-            //             this.slotsMailingType[0].values.push(obj)
-            //         })
-            //     }
-            // })
-            this.slotsMailingType[0].values=[
-                {name:'测试1',value:'1'},
-                {name:'测试2',value:'2'}
-            ]
+            this.slotsMailingType[0].values = []
+            let params = {
+                expressCompanyId:this.expressCompanyId
+            }
+            let url = this.GLOBAL.API_SUBORDINATE_TYPE
+            this.$get(url, params).then(res => {
+                if (res.status == 200) {
+                    let slotsMailingType = res.data
+                    slotsMailingType.map(item => {
+                        let obj = {
+                            name: item.businessTypeName,
+                            value: item.businessType
+                        }
+                        this.slotsMailingType[0].values.push(obj)
+                    })
+                }
+            })
             this.popupshowMT = true
         },
         mailingTypeChange(picker, values) {//寄件类型 改变
@@ -133,11 +122,27 @@ export default {
                 pushName='insuredPrice'
             }else if(value==4){
                 pushName='orderSuccess'
+                let params={
+                    orderType: 'LC',
+                    paymentMethod:0,
+                    mailingWay:this.mailingWay
+                }
+                this.$post(this.GLOBAL.API_ME_MAILING,params).then(res => {
+                    if (res.status == 200) {                    
+                        sessionStorage.setItem('access_token', res.headers.authorization)
+                        sessionStorage.setItem('userType','courier');
+                        this.userInfoLoad()        
+                        Cookies.set('username',this.name) 
+                        Cookies.set('password',this.password)             
+                    }
+                }).catch(err => {
+                    console.log('接口异常')
+                })
             }
             this.$router.push({
                 name:pushName
             })
-        }
+        },
     },
     created() {
         this.setConfig()
