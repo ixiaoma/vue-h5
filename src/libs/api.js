@@ -25,6 +25,8 @@ let API_USER_INFO_INSERT = `${baseUrl}app/user_info/insertOrUpdate`
 let API_LOGIN_CODE=`${baseUrl}wechat/building`
 //快递员的订单列表
 let API_ORDER_LIST=`${baseUrl}order/courierOrder`
+//根据id获取订单详情
+let API_GET_ORDERDETAIL = `${baseUrl}order/query/`
 // 查询地址列表
 let API_GET_ADDRESS= `${baseUrl}addressbooks/page`
 //地址新增
@@ -67,5 +69,6 @@ export default{
   API_EDIT_ADDRESS,
   API_ME_MAILING,
   API_SUBORDINATE_COMPANY,
-  API_SUBORDINATE_TYPE
+  API_SUBORDINATE_TYPE,
+  API_GET_ORDERDETAIL
 }

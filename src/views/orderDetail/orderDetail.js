@@ -1,6 +1,9 @@
 export default{
     data(){
         return {
+            detail:{
+
+            },
             tel:1234567890,
             state:null,
             btnList:[
@@ -60,10 +63,16 @@ export default{
                     //已取件
                     break;  
             }
-        }
+        },
+        getdetail(){
+            this.$get(this.GLOBAL.API_GET_ORDERDETAIL+ this.$route.query.detailId).then(res=>{
+                this.detail = res.data
+            })
+        },
     },
     created(){
-        this.state = 0
+      this.state = 0
       this.$store.commit("setMenu", [true, false]);
+      this.getdetail()
     }
 }
