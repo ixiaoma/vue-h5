@@ -5,7 +5,7 @@ html, body, div, ul, li, dl, dt, img, p, span, button, header, footer, main, art
 
 * {
   -webkit-overflow-scrolling: touch;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 ul, li {

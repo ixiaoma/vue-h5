@@ -23,8 +23,8 @@ let API_USER_INFO_DETAIL = `${baseUrl}app/user_info/detail`
 let API_USER_INFO_INSERT = `${baseUrl}app/user_info/insertOrUpdate`
 //给后端code
 let API_LOGIN_CODE=`${baseUrl}wechat/building`
-//订单列表
-let API_ORDER_LIST=`${baseUrl}order/page`
+//快递员的订单列表
+let API_ORDER_LIST=`${baseUrl}order/courierOrder`
 // 查询地址列表
 let API_GET_ADDRESS= `${baseUrl}addressbooks/page`
 //地址新增
@@ -44,6 +44,7 @@ let API_ME_MAILING =baseUrl +'order/save'
 let API_SUBORDINATE_COMPANY= baseUrl+'subordinateCompany/query'
 //寄件类型
 let API_SUBORDINATE_TYPE= baseUrl+'express/price/query/expresscompany'
+
 
 
 
