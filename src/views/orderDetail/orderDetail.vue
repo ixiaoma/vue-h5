@@ -23,7 +23,7 @@
                         <span>{{detail.receiverName}}</span>
                         <span>{{detail.receiverTel}}</span>
                     </p>
-                    <p>{{detail.receiverProvince + detail.receiverCity + receiverCounty + detail.receiverAddress}}}</p>
+                    <p>{{detail.receiverProvince + detail.receiverCity + detail.receiverCounty + detail.receiverAddress}}}</p>
                 </div>
             </div>
         </div>
