@@ -58,6 +58,19 @@ export default{
     loadTop() {
       this.$refs.loadmore.onTopLoaded();
     },
+    getInitData(){
+      let obj = {
+        "objectType":"3",
+        "take":"10",
+        "skip":0,
+        "page":1,
+        "pageSize":"10",
+        "searchFilter":{"filters":[],"logic":"and"}
+      }
+      this.$post(this.GLOBAL.API_ORDER_LIST,obj).then(res=>{
+
+      })
+    },
     loadMore() {
       this.loading = true;
       setTimeout(() => {
@@ -125,9 +138,7 @@ export default{
   },
   created(){
     this.routerName = this.$route.name
-    //this.$route.name == 'monthUser'
-    //this.$route.name == 'nowUser'
-    //this.$route.name == 'orderList'
     this.$store.commit("setMenu", [true, false]);
+    this.getInitData()
   }
 }

@@ -23,7 +23,8 @@ let API_USER_INFO_DETAIL = `${baseUrl}app/user_info/detail`
 let API_USER_INFO_INSERT = `${baseUrl}app/user_info/insertOrUpdate`
 //给后端code
 let API_LOGIN_CODE=`${baseUrl}wechat/building`
-
+//订单列表
+let API_ORDER_LIST=`${baseUrl}order/page`
 
 
 
@@ -37,5 +38,6 @@ export default{
   PERSONAL_INFO,
   API_USER_INFO_DETAIL,
   API_USER_INFO_INSERT,
-  API_LOGIN_CODE
+  API_LOGIN_CODE,
+  API_ORDER_LIST
 }
