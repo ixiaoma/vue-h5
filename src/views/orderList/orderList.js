@@ -151,7 +151,7 @@ export default{
         id:item.key
       })
     },
-    toDetail(item){
+    toDetail(detailId){
       this.$router.push({name:'orderDetail',query:{
         detailId:detailId
       }})
