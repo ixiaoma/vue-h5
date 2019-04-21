@@ -7,52 +7,33 @@ export default {
             selected:'13',
             searchvalue:'',
             addressData:[],
-            loading:false,
-            page:1,
-            num:0
         }
     },
     computed: {},
     methods: {
-        selectchang(){
-            this.page = 1 
-            this.num = 1
-            this.addressData =[] 
-            this.getAddress()
-        },
         loadTop() {
             this.$refs.loadmore.onTopLoaded();
             // this.getAddress()
-        },
-        down(){
-            this.page = ++ this.num 
-            this.getAddress()
         },
         getAddress(){
             let params ={
                 "objectType":this.selected,
                 "take":"10",
                 "skip":0,
-                "page":this.page,
-                "pageSize":"10",
+                "page":1,
+                "pageSize":"100",
                 "searchFilter":{"filters":[],"logic":"and"}
             }
             this.searchvalue && params.searchFilter.filters.push({field: "name", operator: "contains", value: this.searchvalue})
             this.$post(this.GLOBAL.API_GET_ADDRESS,params).then(res=>{
                 if(res.status==200){
-                    this.addressData = this.addressData.concat(res.data.records)
+                    this.addressData = res.data.records
                 }else{
                     this.addressData =[] 
                 }
             }).catch(err=>{
                 this.addressData =[] 
             })
-        },
-        loadListData(){
-            this.page = 1 
-            this.num = 1
-            this.addressData =[] 
-            this.getAddress()
         },
         toPage(){
             if(this.selected=='13'){
@@ -108,5 +89,6 @@ export default {
     created() {
         this.$store.commit("setMenu", [false, true]);
         this.$route.query.select && (this.selected = this.$route.query.select)
+        this.getAddress()
     }
 }

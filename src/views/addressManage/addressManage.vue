@@ -5,18 +5,17 @@
   <div class="addressManage">
     <div class="page-search">
       <form action="" target="frameFile" onsubmit="return false;">
-         <mt-search v-model="searchvalue" cancel-text="取消" placeholder="搜索" @keyup.enter.native="loadListData"></mt-search>
+         <mt-search v-model="searchvalue" cancel-text="取消" placeholder="搜索" @keyup.enter.native="getAddress"></mt-search>
       </form>
     </div>
     <div class="navbar">
-      <mt-navbar v-model="selected" @click.native="selectchang()">
+      <mt-navbar v-model="selected" @click.native="getAddress">
         <mt-tab-item id="13">收件人地址</mt-tab-item>
         <mt-tab-item id="5">寄件人地址</mt-tab-item>
       </mt-navbar>
     </div>
-    <mt-loadmore class="info" :top-method="loadTop" ref="loadmore">
-            <ul v-infinite-scroll="down"
-                infinite-scroll-disabled="loading">
+    <div class="info" >
+            <ul>
                 <li class="list-item" v-for="(item,key) in addressData" :key="key">
                     <div class="address-text">
                       <p>
@@ -37,7 +36,7 @@
                     </div>
                 </li>
             </ul>
-    </mt-loadmore>
+    </div>
     <button class="button_blue_long" @click="toPage">新增地址</button>
   </div>
 </template>
