@@ -4,12 +4,16 @@ export default {
     components: {},
     data() {
         return {
-            name: '',
-            tele: '',
-            province:'',
-            city:'',
-            county:'',
-            address: '',
+            
+            saveobj:{
+                name: '',
+                telephone: '',
+                detailedAddress: '',
+                type:'1',
+                province:'',
+                city:'',
+                county:'',
+            },
             ProvinceShow: false,
             CityShow: false,
             countyShow: false,
@@ -34,13 +38,31 @@ export default {
             provincehideCode: '',
             cityhideCode: '',
             countyhideCode: '',
-            provinceId:'',
-            cityId:'',
-            countyId:'' 
         }
     },
     computed: {},
     methods: {
+        recipientsave(){//新增收货人地址保存
+            if(this.$route.query.id){//编辑保存
+                this.$post(this.GLOBAL.API_EDIT_ADDRESS,this.saveobj).then(res=>{
+                    this.$router.push({
+                        name:'addressManage',
+                        query:{
+                            select:'13'
+                        }
+                    })
+                })
+            }else{//新增保存
+                this.$post(this.GLOBAL.API_ADD_ADDRESS,this.saveobj).then(res=>{
+                    this.$router.push({
+                        name:'addressManage',
+                        query:{
+                            select:'13'
+                        }
+                    })
+                })
+            }
+        },
         setConfig() {
             this.$store.commit("setMenu", [true, true]);
         },
@@ -137,24 +159,18 @@ export default {
         },
         confirmType(type) { //底部弹出确定
             if (type == '1') {
-                this.province = this.provincehideValue;
-                this.provinceId = this.provincehideCode;
+                this.saveobj.province = this.provincehideValue;
                 this.getSecondLevelData();
-                this.city = '';
-                this.cityId = '';
-                this.county = '';
-                this.countyId = '';
+                this.saveobj.city = '';
+                this.saveobj.county = '';
                 this.ProvinceShow = false;
             } else if (type == '2') {
-                this.city = this.cityhideValue;
-                this.cityId = this.cityhideCode;
-                this.county = '';
-                this.countyId = '';
+                this.saveobj.city = this.cityhideValue;
+                this.saveobj.county = '';
                 this.getThirdLevelData();
                 this.CityShow = false;
             } else if (type == '3') {
-                this.county = this.countyhideValue;
-                this.countyId = this.countyhideCode;
+                this.saveobj.county = this.countyhideValue;
                 this.countyShow = false;
             }
         },
@@ -168,6 +184,9 @@ export default {
     },
     created() {
         this.setConfig()
+        this.$route.query.id && this.$get(this.GLOBAL.API_GET_ADDRESS_DETAILS+this.$route.query.id).then(res=>{
+            this.saveobj =res.data
+        })
         this.getFirstLevelData();
     }
 }

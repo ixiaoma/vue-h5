@@ -4,17 +4,17 @@
 <template>
   <div class="recipientAdd">
       <div class="info">
-            <mt-field label="姓名" placeholder="请输入姓名" v-model="name"></mt-field>
-            <mt-field label="电话" placeholder="强输入电话" v-model="tele"></mt-field>          
-            <mt-field label="省份" placeholder="请选择省份" v-model="province" readonly @click.native="selectTypeLoad(1)">
+            <mt-field label="姓名" placeholder="请输入姓名" v-model="saveobj.name"></mt-field>
+            <mt-field label="电话" placeholder="强输入电话" v-model="saveobj.telephone"></mt-field>          
+            <mt-field label="省份" placeholder="请选择省份" v-model="saveobj.province" readonly @click.native="selectTypeLoad(1)">
             </mt-field>
-            <mt-field label="市级" placeholder="请选择市区" v-model="city" readonly @click.native="selectTypeLoad(2)">
+            <mt-field label="市级" placeholder="请选择市区" v-model="saveobj.city" readonly @click.native="selectTypeLoad(2)">
             </mt-field>
-            <mt-field label="县级" placeholder="请选择县区" v-model="county" readonly @click.native="selectTypeLoad(3)">
+            <mt-field label="县级" placeholder="请选择县区" v-model="saveobj.county" readonly @click.native="selectTypeLoad(3)">
             </mt-field>
-            <mt-field label="详细地址" placeholder="请输入详细地址" type="textarea" rows="3" v-model="address"></mt-field>
+            <mt-field label="详细地址" placeholder="请输入详细地址" type="textarea" rows="3" v-model="saveobj.detailedAddress"></mt-field>
       </div>  
-      <button class="button_blue_long">保存</button>
+      <button class="button_blue_long" @click="recipientsave">保存</button>
       <!-- 省份 -->
       <mt-popup v-model="ProvinceShow" position="bottom" class="popup">
         <div class="mint-msgbox-btns">

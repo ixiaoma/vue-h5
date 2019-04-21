@@ -9,23 +9,23 @@
       </form>
     </div>
     <div class="navbar">
-      <mt-navbar v-model="selected">
-        <mt-tab-item id="1">收件人地址</mt-tab-item>
-        <mt-tab-item id="2">寄件人地址</mt-tab-item>
+      <mt-navbar v-model="selected" @click.native="selectchang(selected)">
+        <mt-tab-item id="13">收件人地址</mt-tab-item>
+        <mt-tab-item id="5">寄件人地址</mt-tab-item>
       </mt-navbar>
     </div>
     <div class="info">
         <div class="list-item" v-for="(item,key) in addressData" :key="key">
-        <div class="address-text" @click="toPage(item)">
+        <div class="address-text">
           <p>
-            <span>{{item.userName}}</span>
+            <span>{{item.name}}</span>
             <span>{{item.telephone}}</span>
           </p>
-          <p>{{ item.address }}</p>
+          <p>{{ item.province + item.city + item.county}}</p>
         </div>
         <div class="handle">
           <div class="operation">
-            <p @click="toAdd(2,item.id)">
+            <p @click="toAdd(item.id)">
               <i class="fa fa-pencil fa-fw"></i>编辑
             </p>
             <p @click="openDele(item.id)">

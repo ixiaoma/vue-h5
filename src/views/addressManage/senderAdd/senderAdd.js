@@ -4,10 +4,14 @@ export default {
     components: {},
     data() {
         return {
-            name:'',
-            tele:'',
-            store: '',//快递公司
-            address:'',
+            saveobj:{
+                name:'',
+                telephone:'',
+                detailedAddress:'',
+                type:'2'
+            },
+            store: '',
+            //快递公司
             popupshowStore: false,//快递公司 下拉框
             slotstore: [
                 {
@@ -24,6 +28,27 @@ export default {
     },
     computed: {},
     methods: {
+        sendersave(){
+            if(this.$route.query.id){//编辑保存
+                this.$post(this.GLOBAL.API_EDIT_ADDRESS,this.saveobj).then(res=>{
+                    this.$router.push({
+                        name:'addressManage',
+                        query:{
+                            select:'5'
+                        }
+                    })
+                })
+            }else{//新增保存
+                this.$post(this.GLOBAL.API_ADD_ADDRESS,this.saveobj).then(res=>{
+                    this.$router.push({
+                        name:'addressManage',
+                        query:{
+                            select:'5'
+                        }
+                    })
+                })
+            }
+        },
         setConfig() {
             this.$store.commit("setMenu", [true, true]);
         },
@@ -72,5 +97,8 @@ export default {
     },
     created() {
         this.setConfig()
+        this.$route.query.id && this.$get(this.GLOBAL.API_GET_ADDRESS_DETAILS+this.$route.query.id).then(res=>{
+            this.saveobj =res.data
+        })
     }
 }

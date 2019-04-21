@@ -25,6 +25,17 @@ let API_USER_INFO_INSERT = `${baseUrl}app/user_info/insertOrUpdate`
 let API_LOGIN_CODE=`${baseUrl}wechat/building`
 //订单列表
 let API_ORDER_LIST=`${baseUrl}order/page`
+// 查询地址列表
+let API_GET_ADDRESS= `${baseUrl}addressbooks/page`
+//地址新增
+let API_ADD_ADDRESS = `${baseUrl}addressbooks/add`
+//地址编辑
+let API_EDIT_ADDRESS = `${baseUrl}addressbooks/edit`
+//地址删除
+let API_DEL_ADDRESS = `${baseUrl}addressbooks/dels`
+//根据id获取地址详情
+let API_GET_ADDRESS_DETAILS = `${baseUrl}addressbooks/`
+
 
 
 
@@ -39,5 +50,10 @@ export default{
   API_USER_INFO_DETAIL,
   API_USER_INFO_INSERT,
   API_LOGIN_CODE,
-  API_ORDER_LIST
+  API_ORDER_LIST,
+  API_GET_ADDRESS,
+  API_ADD_ADDRESS,
+  API_DEL_ADDRESS,
+  API_GET_ADDRESS_DETAILS,
+  API_EDIT_ADDRESS
 }
