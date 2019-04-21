@@ -9,15 +9,15 @@ export default{
       listData:[1,2,3,4,5,6,7,8,9,10],
       userNav:[
         {
-          key:'0',
+          key:'100',
           name:'全部'
         },
         {
-          key:'1',
+          key:'0',
           name:'待取件'
         },
         {
-          key:'2',
+          key:'26',
           name:'待支付'
         },
         {
@@ -27,19 +27,19 @@ export default{
       ],
       courierNav:[
         {
-          key:'0',
+          key:'100',
           name:'全部'
         },
         {
-          key:'1',
+          key:'5',
           name:'待接单'
         },
         {
-          key:'2',
+          key:'0',
           name:'待取件'
         },
         {
-          key:'3',
+          key:'1',
           name:'已取件'
         },
         {
