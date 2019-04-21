@@ -20,7 +20,7 @@
            </div>    
            <span class="zhu">注：实际重量以收派员确定为准</span>       
       </div>  
-      <button class="button_blue_long">保存</button>
+      <button class="button_blue_long" @click="goodssave">保存</button>
   </div>
 </template>
 <script src="./goodsInfo.js"></script>

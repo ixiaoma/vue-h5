@@ -84,6 +84,12 @@ export default {
             }).catch(err=>{
                 console.log('取消')
             });
+        },
+        toUserMail(item){
+            this.$store.commit('toUserMailVuex',item)
+            this.$router.push({
+                name:'userMailing'
+            })
         }             
     },
     created() {

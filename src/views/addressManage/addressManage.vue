@@ -17,7 +17,7 @@
     <div class="info" >
             <ul>
                 <li class="list-item" v-for="(item,key) in addressData" :key="key">
-                    <div class="address-text">
+                    <div class="address-text" @click="toUserMail(item)">
                       <p>
                         <span>{{item.name}}</span>
                         <span>{{item.telephone}}</span>

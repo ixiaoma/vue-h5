@@ -6,13 +6,13 @@
       <div class="address">
           <div class="row_1">
               <span class="iconfont icon-jijian1"></span>
-                <input type="text" placeholder="请输入寄件人信息" v-model="mailingInfo"/>
+                <input type="text" placeholder="请输入寄件人信息" readonly @click="toPage(0)" v-model="mailingInfo"/>
                 <i class="fa fa-chevron-right"  @click="toPage(1)"></i>
           </div>
           <div class="row_2">
               <span class="iconfont icon-shoujian"></span>
-                <input type="text" placeholder="请输入收件人信息" v-model="receiptInfo"/>
-                <i class="fa fa-chevron-right"></i>
+                <input type="text" placeholder="请输入收件人信息" readonly @click="toPage(1)" v-model="receiptInfo"/>
+                <i class="fa fa-chevron-right" @click="toPage(1)"></i>
           </div>
       </div>
       <div class="info">

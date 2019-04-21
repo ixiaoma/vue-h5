@@ -31,9 +31,26 @@ export default {
             if(this.num>1){
                 this.num--
             }      
+        },
+        goodssave(){
+            let goodsType=''
+            this.goodsType.forEach((item,index)=>{
+                if(index==this.current){
+                    goodsType=this.goodsType[index].name
+                }
+            })
+            this.$store.commit('goodsVuexLoad',[goodsType,this.num])
+            this.$router.go(-1)
         }
     },
     created() {
         this.setConfig()
+        this.goods=this.$store.state.goodsVuex
+        this.num=this.$store.state.weightVuex
+        this.goodsType.forEach((item,index)=>{
+            if(item.name==this.goods){
+                this.current=index
+            }
+        })
     }
 }

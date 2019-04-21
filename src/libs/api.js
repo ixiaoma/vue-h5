@@ -45,7 +45,8 @@ let API_GET_ADDRESS_DETAILS = `${baseUrl}addressbooks/`
 //我要寄件
 let API_ME_MAILING =baseUrl +'order/save'
 //快递公司
-let API_SUBORDINATE_COMPANY= baseUrl+'subordinateCompany/query'
+let API_SUBORDINATE_COMPANY=baseUrl+'order/optionalExpressCompany'
+// let API_SUBORDINATE_COMPANY= baseUrl+'subordinateCompany/query'
 //寄件类型
 let API_SUBORDINATE_TYPE= baseUrl+'express/price/query/expresscompany'
 
