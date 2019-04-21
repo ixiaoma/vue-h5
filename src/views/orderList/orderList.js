@@ -34,7 +34,16 @@ export default{
     loadMore(flag) {
       this.loading = true;
       !flag && this.searchData.page ++
-      this.$post(this.GLOBAL.API_ORDER_LIST,this.searchData).then(res=>{
+      let searchObj = {}
+      if(this.searchvalue){
+        searchObj = {
+          searchConditionQO : this.searchData,
+          nameTelephone:this.searchvalue
+        }
+      }else{
+        searchObj = this.searchData
+      }
+      this.$post(this.GLOBAL.API_ORDER_LIST,searchObj).then(res=>{
         res.data.records.forEach(item=>{
           let status = ''
           switch (item.orderStatus){
@@ -45,7 +54,7 @@ export default{
               status = '已取件'
               break;
             case 2:
-              status = '待取件'
+              status = '已发出'
               break;
             case 3:
               status = '已签收'
@@ -56,6 +65,8 @@ export default{
             case 5:
               status = '待接单'
               break;
+            default:
+              status = '待支付'
           }
           item.status = status
         })
@@ -65,9 +76,6 @@ export default{
     searchFn(){
       this.searchData.page = 1
       this.searchData.searchFilter.filters=[]
-      if(this.searchvalue){
-          this.searchData.searchFilter.filters.push({value: this.searchvalue, operator: "eq", field: "searchValue"})
-      }
       if(this.selected != '全部'){
         this.searchData.searchFilter.filters.push({value: this.selected, operator: "eq", field: "orderStatus"})
       }

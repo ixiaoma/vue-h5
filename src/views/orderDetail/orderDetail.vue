@@ -2,8 +2,8 @@
     <div class="order-detail box-style">
         <div class="courier border-style">
             <span class="courier-left"><span class="iconfont icon-lianxiren blue-font"></span> 快递员</span>
-            <span> 丁小凡:{{tel}}</span>
-            <a :href="'tel:'+tel"><span class="iconfont icon-weibiaoti phoneicon"></span></a>
+            <span> {{detail.courierName}}:{{detail.courierTel}}</span>
+            <a :href="'tel:'+detail.courierTel"><span class="iconfont icon-weibiaoti phoneicon"></span></a>
         </div>
         <div class="mailing border-style">
             <div class="mailing-box mailing-top">
@@ -13,7 +13,7 @@
                         <span>{{detail.senderName}}</span>
                         <span>{{detail.senderTel}}</span>
                     </p>
-                    <p>{{detail.senderProvince + detail.senderCity + detail.senderCounty + detail.receiverAddress}}}</p>
+                    <div>{{detail.senderProvince + detail.senderCity + detail.senderCounty + detail.receiverAddress}}</div>
                 </div>
             </div>
             <div class="mailing-box">
@@ -23,20 +23,25 @@
                         <span>{{detail.receiverName}}</span>
                         <span>{{detail.receiverTel}}</span>
                     </p>
-                    <p>{{detail.receiverProvince + detail.receiverCity + detail.receiverCounty + detail.receiverAddress}}}</p>
+                    <div>{{detail.receiverProvince + detail.receiverCity + detail.receiverCounty + detail.receiverAddress}}</div>
                 </div>
             </div>
         </div>
         <div class="express-company border-style">
+            <p v-if='courier'>所属公司 : <span>{{detail.expressCompanyName}}</span></p>
             <p>快递公司 : <span>{{detail.expressCompanyName}}</span></p>
             <p>寄件类型 : <span>{{detail.expressType}}</span></p>
-            <p>快递单号 : <span>{{detail.expressNumber}}</span></p>
+            <p v-if='orderNumberShow'>快递单号 : <span>{{detail.expressNumber}}</span></p>
             <p>包裹 : <span>{{detail.packageItemName}}</span></p>
             <p>付款方式 : <span>{{detail.paymentMethod==1 ? '协议结算(月结)' : '寄付(现结)' }}</span></p>
             <p>保价 : <span>{{detail.isInsured}}</span></p>
-            <p>总金额 : <span><i class="red-font">{{detail.expressCost}}</i> 元</span></p>
+            <p v-if='moneyShow'>总金额 : <span><i class="red-font">{{detail.expressCost}}</i> 元</span></p>
+            <p v-if='courier'>物品数量 : <span>{{detail.expressCompanyName}}</span></p>
+            <p v-if='courier'>重量 : <span>{{detail.expressCompanyName}}</span></p>
+            <p v-if='courier'>包裹件数 : <span>{{detail.expressCompanyName}}</span></p>
+            <p v-if='courier'>快递费用 : <span>{{detail.expressCompanyName}}</span></p>
         </div>
-        <div class="logistics border-style">
+        <div v-if='statusDetail' class="logistics border-style">
             <div class="logistics-row">
                 <div class="row-left">
                     <p>2019/10/10</p>

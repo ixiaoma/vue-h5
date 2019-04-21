@@ -1,11 +1,9 @@
 export default{
     data(){
         return {
-            detail:{
-
-            },
-            tel:1234567890,
+            detail:{},
             state:null,
+            courier:false,
             btnList:[
                 {
                     btncode:'calcle',
@@ -41,17 +39,48 @@ export default{
     computed:{
         btncode:function(){
             let code = ''
-            if(this.state == 0){
-                code = this.btnList[this.state].btncode
+            if(this.detail.orderStatus === 0){
+                if(courier){
+                    code = this.btnList[3].btncode
+                }else{
+                    code = this.btnList[0].btncode
+                }
+            }
+            if(this.detail.paymentStatus === 0){
+                code = this.btnList[1].btncode
+            }
+            if(this.detail.orderStatus === 3 || this.detail.orderStatus === 1){
+                code = this.btnList[2].btncode
             }
             return code
         },
         btnName:function(){
             let name = ''
-            if(this.state == 0){
+            if(this.detail.orderStatus === 0){
                 name = this.btnList[this.state].btnName
             }
             return name
+        },
+        orderNumberShow:function(){
+            let numShow = false
+            if(this.detail.orderStatus === 0  || this.detail.orderStatus === 1 || this.detail.orderStatus === 3 || this.detail.paymentStatus === 0){
+                numShow = true
+            }
+            return numShow
+        },
+        moneyShow:function(){
+            let moneyShow = false
+            if(this.detail.orderStatus === 3 || this.detail.paymentStatus === 0){
+                moneyShow = true
+            }
+            return moneyShow
+        },
+        statusDetail:function(){
+            let detailShow = false
+            if(this.detail.orderStatus === 3 || this.detail.orderStatus === 1 ){
+                detailShow = true
+            }
+            return detailShow
         }
     },
     methods:{
@@ -63,7 +92,10 @@ export default{
         btnClick(code){
             switch (code){
                 case 'calcle':
-                    //取消订单
+                    this.$router.push({
+                        name:'cancelMailing',
+                        query:{orderNum:this.detail.orderNum}
+                    })
                     break;
                 case 'toPay':
                     //去支付
