@@ -118,7 +118,9 @@ export default{
     cancleOrder(item){
       this.$router.push({
         name:'cancelMailing',
-        id:item.key
+        query:{
+          orderNum:item.orderNum
+        }
       })
     },
     toDetail(detailId){

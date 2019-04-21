@@ -15,10 +15,10 @@
           <i class="fa fa-circle-o color999-font" v-else></i>      
           {{item.name}}
         </p>
-        <textarea v-model="remark" placeholder="请输入10个字以上"/>
+        <textarea v-model="saveobj.cancelremark" placeholder="请输入10个字以上"/>
       </div>
     </div>
-    <button class="button_blue_long">提交</button>
+    <button class="button_blue_long" @click="Submit">提交</button>
   </div>
 </template>
 <script src="./cancelMailing.js"></script>

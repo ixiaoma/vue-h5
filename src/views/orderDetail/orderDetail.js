@@ -23,6 +23,18 @@ export default{
                     btncode:'gotBox',
                     btnName:'已取件'
                 }
+            ],
+            type:[
+                {id:1,name:'控温'},
+                {id:2,name:'鲜活'},
+                {id:3,name:'标准快递'},
+                {id:4,name:'特配'},
+                {id:5,name:'填仓'},
+                {id:6,name:'深冷'},
+                {id:7,name:'特准送'},
+                {id:8,name:'冷藏'},
+                {id:9,name:'冷冻'},
+                {id:10,name:'其他'},
             ]
         }
     },
@@ -67,6 +79,11 @@ export default{
         getdetail(){
             this.$get(this.GLOBAL.API_GET_ORDERDETAIL+ this.$route.query.detailId).then(res=>{
                 this.detail = res.data
+                this.type.forEach(ele => {
+                    if(ele.id == this.detail.expressType){
+                        this.detail.expressType = ele.name
+                    }
+                });
             })
         },
     },

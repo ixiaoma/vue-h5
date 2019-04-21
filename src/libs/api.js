@@ -27,6 +27,8 @@ let API_LOGIN_CODE=`${baseUrl}wechat/building`
 let API_ORDER_LIST=`${baseUrl}order/courierOrder`
 //根据id获取订单详情
 let API_GET_ORDERDETAIL = `${baseUrl}order/query/`
+//取消订单
+let API_CANCEL_ORDER = `${baseUrl}order/orderState/update`
 // 查询地址列表
 let API_GET_ADDRESS= `${baseUrl}addressbooks/page`
 //地址新增
@@ -70,5 +72,6 @@ export default{
   API_ME_MAILING,
   API_SUBORDINATE_COMPANY,
   API_SUBORDINATE_TYPE,
-  API_GET_ORDERDETAIL
+  API_GET_ORDERDETAIL,
+  API_CANCEL_ORDER
 }
