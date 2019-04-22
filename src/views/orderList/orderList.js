@@ -43,7 +43,8 @@ export default{
       }else{
         searchObj = this.searchData
       }
-      this.$post(this.GLOBAL.API_ORDER_LIST,searchObj).then(res=>{
+      let url = this.routerName == 'orderList' ? this.GLOBAL.API_USER_ORDER_LIST : this.GLOBAL.API_ORDER_LIST
+      this.$post(url,searchObj).then(res=>{
         res.data.records.forEach(item=>{
           let status = ''
           switch (item.orderStatus){
@@ -65,10 +66,8 @@ export default{
             case 5:
               status = '待接单'
               break;
-            default:
-              status = '待支付'
           }
-          item.status = status
+          item.status = item.paymentStatus === 0 ? '待支付' : status
         })
           this.listData = res.data.records
       })
@@ -77,12 +76,10 @@ export default{
       this.searchData.page = 1
       this.searchData.searchFilter.filters=[]
       if(this.selected != '全部'){
-        this.searchData.searchFilter.filters.push({value: this.selected, operator: "eq", field: "orderStatus"})
+        let fieldKey = this.selected == '待支付' ? "orderStatus" : 'paymentStatus'
+        this.searchData.searchFilter.filters.push({value: this.selected, operator: "eq", field: fieldKey})
       }
       this.loadMore(1)
-    },
-    toPayOrder(item){
-
     },
     toPayOrder(item) { //2.使用orderCode唤起支付
       var url = 'http://api.bookshop.ui-tech.cn/pay/order/1';
@@ -132,16 +129,20 @@ export default{
       })
     },
     toDetail(detailId){
-      this.$router.push({name:'orderDetail',query:{
+      let routerQuery = {
         detailId:detailId
-      }})
-    },
-    loadListData(){
-      
+      }
+      if(this.routerName != 'orderList'){
+          routerQuery.courier = 1
+      }
+      this.$router.push({name:'orderDetail',query:routerQuery})
     }
   },
   created(){
     this.routerName = this.$route.name
+    if(this.$route.name != 'orderList'){
+      this.$route.meta.title = this.$route.name == 'nowUser' ? '现结用户' : '月结用户'
+    }
     this.$store.commit("setMenu", [true, false]);
   }
 }

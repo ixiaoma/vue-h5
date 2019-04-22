@@ -41,25 +41,7 @@
             <p v-if='courier'>包裹件数 : <span>{{detail.expressCompanyName}}</span></p>
             <p v-if='courier'>快递费用 : <span>{{detail.expressCompanyName}}</span></p>
         </div>
-        <div v-if='statusDetail' class="logistics border-style">
-            <div class="logistics-row">
-                <div class="row-left">
-                    <p>2019/10/10</p>
-                    <p>20:33</p>
-                    <i class="fa fa-circle rowicon blue-font"></i>
-                </div>
-                <p class="row-right">北京北京</p>
-            </div>
-            <div class="logistics-row">
-                <div class="row-left">
-                    <p>2019/10/10</p>
-                    <p>20:33</p>
-                    <i class="fa fa-circle rowicon"></i>
-                </div>
-                <p class="row-right">北京北京   北京北京北京北京北京北京北京北京北京北京北京北京北京北京</p>
-            </div>
-        </div>
-        <button class="button_blue_long btm-btn" @click="btnClick(btncode)">{{btnName}}</button>
+        <button v-if="detail.orderStatus != 4" class="button_blue_long btm-btn" @click="btnClick(btns.btncode)">{{btns.btnName}}</button>
     </div>
 </template>
 <script src='./orderDetail.js'></script>

@@ -54,6 +54,14 @@ export const router = new Router({
           component: () => import('@views/orderDetail/orderDetail.vue')
         },
         {
+          path: '/logisticsDetails',
+          name: 'logisticsDetails',
+          meta: {
+            title: '订单详情'
+          },
+          component: () => import('@views/logisticsDetails/logisticsDetails.vue')
+        },
+        {
           path: '/orderNumber',
           name: 'orderNumber',
           meta: {

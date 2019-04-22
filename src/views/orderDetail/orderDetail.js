@@ -2,8 +2,6 @@ export default{
     data(){
         return {
             detail:{},
-            state:null,
-            courier:false,
             btnList:[
                 {
                     btncode:'calcle',
@@ -37,29 +35,25 @@ export default{
         }
     },
     computed:{
-        btncode:function(){
+        courier:function(){
+            return this.$route.query.courier
+        },
+        btns:function(){
             let code = ''
             if(this.detail.orderStatus === 0){
-                if(courier){
-                    code = this.btnList[3].btncode
+                if(this.courier){
+                    code = this.btnList[3]
                 }else{
-                    code = this.btnList[0].btncode
+                    code = this.btnList[0]
                 }
             }
             if(this.detail.paymentStatus === 0){
-                code = this.btnList[1].btncode
+                code = this.btnList[1]
             }
             if(this.detail.orderStatus === 3 || this.detail.orderStatus === 1){
-                code = this.btnList[2].btncode
+                code = this.btnList[2]
             }
             return code
-        },
-        btnName:function(){
-            let name = ''
-            if(this.detail.orderStatus === 0){
-                name = this.btnList[this.state].btnName
-            }
-            return name
         },
         orderNumberShow:function(){
             let numShow = false
@@ -74,21 +68,9 @@ export default{
                 moneyShow = true
             }
             return moneyShow
-        },
-        statusDetail:function(){
-            let detailShow = false
-            if(this.detail.orderStatus === 3 || this.detail.orderStatus === 1 ){
-                detailShow = true
-            }
-            return detailShow
         }
     },
     methods:{
-        toPay(){
-            this.$router.push({
-                name:'orderNumber'    
-            })
-        },
         btnClick(code){
             switch (code){
                 case 'calcle':
@@ -102,9 +84,17 @@ export default{
                     break;   
                 case 'checkInfo':
                     //查看物流信息
+                    this.$router.push({
+                        name:'LogisticsDetails',
+                        query:{orderNum:this.detail.orderNum,showCourier:this.courier}
+                    })
                     break;
                 case 'gotBox':
                     //已取件
+                    this.$router.push({
+                        name:'orderNumber',
+                        query:{orderNum:this.detail.orderNum}    
+                    })
                     break;  
             }
         },
@@ -120,7 +110,6 @@ export default{
         },
     },
     created(){
-      this.state = 0
       this.$store.commit("setMenu", [true, false]);
       this.getdetail()
     }

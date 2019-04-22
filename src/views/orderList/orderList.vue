@@ -2,7 +2,7 @@
     <div class="order-page box-style">
         <div v-if='showSearch' class="search">
             <form action="" target="frameFile" onsubmit="return false;">
-                <mt-search v-model="searchvalue" cancel-text="取消" placeholder="搜索" @keyup.enter.native="searchFn"></mt-search>
+                <mt-search v-model="searchvalue" cancel-text="取消" placeholder="请输入姓名/电话" @keyup.enter.native="searchFn"></mt-search>
             </form>
         </div>
         <mt-navbar class="nav-bar border-style" v-model="selected" @click.native="searchFn">
